@@ -13,7 +13,6 @@ const Home = () => {
     const fetchPosts = async () => {
       try {
         const response = await PostDataService.getPosts();
-        console.log(response.data);
         setPosts(response.data);
       } catch (error) {
         console.error("Failed to fetch posts:", error);
@@ -22,8 +21,6 @@ const Home = () => {
 
     fetchPosts();
   }, []);
-
-  console.log(posts);
 
   return (
     <div className="home-layout">
