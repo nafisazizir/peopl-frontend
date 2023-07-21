@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
+import React, { ChangeEvent, useState } from "react";
 import "./RegisterStyle.css";
 import Label from "../../../components/Label/Label";
 import { AxiosError } from "axios";
