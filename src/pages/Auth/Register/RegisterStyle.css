@@ -1,0 +1,51 @@
+.regist-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    vertical-align: middle;
+  }
+  
+  .regist-form-container {
+    display: flex;
+    width: 410px;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+  
+  .or-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+  }
+  
+  .or {
+    color: #afafaf !important;
+    text-align: center;
+  }
+  .line {
+    width: 187px;
+    height: 1px;
+    background: #dbdbdb;
+    border: 0;
+  }
+  
+  .login-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  @media (max-width: 768px) {
+      .regist-form-container {
+        width: 320px;
+      }
+    
+      .intro-option-box {
+        padding: 12px 16px;
+      }
+    }
+    
