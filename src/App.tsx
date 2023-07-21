@@ -7,20 +7,26 @@ import Login from "./pages/Auth/Login/Login";
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword";
 import EmailSent from "./pages/Auth/ForgotPassword/EmailSent";
 import ResetPassword from "./pages/Auth/ForgotPassword/ResetPassword";
+import Search from "./pages/Search/Search";
+import CreatePost from "./pages/Create/CreatePost";
+
 
 function App() {
   return (
     <>
-        <Routes>
-          <Route path="/" element={<Intro />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/register/create" element={<CreateUsername/>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/login/forgot" element={<ForgotPassword />} />
-          <Route path="/login/forgot/sent" element={<EmailSent />} />
-          <Route path="/reset" element={<ResetPassword />} />
+      <Routes>
+        <Route path="/" element={<Intro />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/register/create" element={<CreateUsername />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/login/forgot" element={<ForgotPassword />} />
+        <Route path="/login/forgot/sent" element={<EmailSent />} />
+        <Route path="/reset" element={<ResetPassword />} />
         <Route path="/home" element={<Home />} />
-        </Routes>
+        <Route path="/search/posts" element={<Search />} />
+        <Route path="/create" element={<CreatePost />} />
+
+      </Routes>
     </>
   );
 }

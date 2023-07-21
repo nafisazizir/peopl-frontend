@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateUsernameStyle.css";
 import Label from "../../../components/Label/Label";
@@ -9,6 +9,12 @@ type Props = {};
 
 export default function CreateUsername({}: Props) {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+
+  const handleUsername = (event: ChangeEvent<HTMLInputElement>) => {
+    const newUsername = event.target.value;
+    setUsername(newUsername);
+  };
   const iconBack = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -133,12 +139,8 @@ export default function CreateUsername({}: Props) {
               labelText={"Username"}
               isRequired={true}
               placeholderText={"Ex: PokemonAir-Bulbasour11"}
-              value={""}
-              onChange={function (
-                event: React.ChangeEvent<HTMLInputElement>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
+              value={username}
+              onChange={handleUsername}
             />
             <ButtonLarge
               iconLeft={iconDice}

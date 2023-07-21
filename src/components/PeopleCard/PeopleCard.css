@@ -1,0 +1,15 @@
+.people-container {
+  display: flex;
+  padding: 16px 24px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--neutral-0, #fff);
+}
+
+.people-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

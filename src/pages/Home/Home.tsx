@@ -3,6 +3,8 @@ import "./HomeStyle.css";
 import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
 import PostDataService, { Post } from "../../services/post";
+import ScrollButton from "../../components/Button/ScrollButton/ScrollButton";
+
 
 const Home = () => {
   document.body.style.backgroundColor = "var(--neutral-10)";
@@ -40,6 +42,7 @@ const Home = () => {
           />
         ))}
       </div>
+      <ScrollButton buttonText={"BackToTop"}/>
     </div>
   );
 };

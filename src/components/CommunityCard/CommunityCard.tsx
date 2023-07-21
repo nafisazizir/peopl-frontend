@@ -1,56 +1,25 @@
 import React from "react";
-import "./PostCardStyle.css";
-import ButtonLarge from "../Button/Large/ButtonLarge";
+import "./CommunityCardStyle.css";
+import ButtonNormal from "../Button/Normal/ButtonNormal";
 
-interface PostCardProps {
-  title: string;
-  content: string;
-  author: string;
+type Props = {
   community: string;
-  totalComments: number;
-  createdAt: Date;
-}
+  numOfMem: number;
+  numOfPost: number;
+  description: string;
+};
 
-function getRelativeTime(createdAt: Date): string {
-  const now = new Date();
-  const diffInSeconds = Math.floor(
-    (now.getTime() - createdAt.getTime()) / 1000
-  );
-
-  const timeUnits: { [unit: string]: number } = {
-    year: 31536000,
-    month: 2592000,
-    week: 604800,
-    day: 86400,
-    hour: 3600,
-    minute: 60,
-  };
-
-  for (const unit in timeUnits) {
-    const seconds = timeUnits[unit as keyof typeof timeUnits];
-    const interval = Math.floor(diffInSeconds / seconds);
-
-    if (interval >= 1) {
-      return `${interval}${unit.charAt(0)}`;
-    }
-  }
-
-  return "now";
-}
-
-const PostCard: React.FC<PostCardProps> = ({
-  title,
-  content,
-  author,
+export default function CommunityCard({
   community,
-  totalComments,
-  createdAt,
-}) => {
+  numOfMem,
+  numOfPost,
+  description,
+}: Props) {
   return (
-    <div className="post-card-container">
-      <div className="post-card-header">
-        <div className="left">
-          <svg
+    <>
+      <div className="com-container">
+        <div className="com-detail">
+        <svg
             className="post-card-community-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -80,48 +49,22 @@ const PostCard: React.FC<PostCardProps> = ({
               fill="#FFF1E6"
             />
           </svg>
-          <div className="left-no-icon">
-            <div className="community-name body-p6">{community}</div>
-            <h6 className="dot" style={{ color: "#9caaba" }}>
-              ·
-            </h6>
-            <div className="posted-by">
-              <div className="user-name body-p8">Posted by</div>
-              <div className="user-name body-p8">{author}</div>
+          <div className="com-detail-user">
+            <div className="com-detail-user-name">
+              <div className="body-p6">{community}</div>
+              <h6 className="grey-402">·</h6>
+              <div className="body-p8">{numOfMem} Members</div>
+              <h6 className="grey-402">·</h6>
+              <div className="body-p8">{numOfPost} Posts</div>
             </div>
+            <div className="body-p8 grey-40">{description}</div>
+
           </div>
         </div>
-        <div className="user-name body-p8">
-          {getRelativeTime(new Date(createdAt))}
-        </div>
+        <ButtonNormal buttonText={"Join"} isSecondary={false} isGhost={false} onClick={function (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
+                  throw new Error("Function not implemented.");
+              } }/>
       </div>
-      <h4 className="title">{title}</h4>
-      <div className="body-p8 post-card-content" style={{ textAlign: "left" }}>
-        {content}
-      </div>
-      <div className="post-card-footer">
-        <div className="post-card-reply">
-          <svg
-            className="reply-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="25"
-            viewBox="0 0 24 25"
-            fill="none"
-          >
-            <path
-              d="M20.25 8.57024C21.1341 8.85469 21.75 9.69841 21.75 10.6674V14.953C21.75 16.0896 20.9026 17.0535 19.7697 17.1459C19.4308 17.1736 19.0909 17.1978 18.75 17.2185V20.3092L15.75 17.3092C14.3963 17.3092 13.0556 17.254 11.7302 17.1458C11.4319 17.1215 11.1534 17.0367 10.9049 16.9043M20.25 8.57024C20.0986 8.52152 19.9393 8.48921 19.7739 8.47548C18.4472 8.36536 17.1051 8.3092 15.75 8.3092C14.3948 8.3092 13.0528 8.36536 11.7261 8.47547C10.595 8.56935 9.75 9.53243 9.75 10.6674V14.9529C9.75 15.7902 10.2099 16.5338 10.9049 16.9043M20.25 8.57024V6.69651C20.25 5.0751 19.0983 3.66985 17.4903 3.46111C15.4478 3.19596 13.365 3.0592 11.2503 3.0592C9.13533 3.0592 7.05233 3.19599 5.00963 3.46119C3.40173 3.66995 2.25 5.07518 2.25 6.69658V12.9218C2.25 14.5432 3.40173 15.9485 5.00964 16.1572C5.58661 16.2321 6.16679 16.2968 6.75 16.351V21.0592L10.9049 16.9043"
-              stroke="#FC7201"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <div>{totalComments} Comments</div>
-        </div>
-      </div>
-    </div>
+    </>
   );
-};
-
-export default PostCard;
+}
