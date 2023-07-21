@@ -1,14 +1,19 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
 import "./RegisterStyle.css";
 import Label from "../../../components/Label/Label";
+import { AxiosError } from "axios";
 
 import ButtonAuthGoogle from "../../../components/Button/AuthButton/ButtonAuthGoogle";
 import { useNavigate } from "react-router-dom";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 
+import UserDataService from "../../../services/user";
+import { logout } from "../../../hooks/auth";
+
 type Props = {};
 
 export default function Register({}: Props) {
+  logout();
   const navigate = useNavigate();
   const iconPassword = (
     <svg
@@ -34,6 +39,9 @@ export default function Register({}: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState(
+    "By signing up, you agree to our Terms of Service and Privacy Policy."
+  );
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newEmail = event.target.value;
@@ -50,6 +58,29 @@ export default function Register({}: Props) {
   ) => {
     const newConfirmPassword = event.target.value;
     setConfirmPassword(newConfirmPassword);
+  };
+
+  const handleClick = async (event: React.MouseEvent<HTMLDivElement>) => {
+    if (email === "" || password === "" || confirmPassword === "") {
+      setMessage("Please fill all the fields!");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setMessage("The password doesn't match");
+      return;
+    }
+
+    try {
+      await UserDataService.register(email, password);
+      navigate("/home");
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        setMessage(error.response.data.message);
+      } else {
+        console.log("An unknown error occurred.");
+      }
+    }
   };
 
   return (
@@ -85,11 +116,7 @@ export default function Register({}: Props) {
             ></Label>
             <ButtonLarge
               buttonText={"Register"}
-              onClick={function (
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
+              onClick={handleClick}
               isSecondary={false}
               isGhost={false}
             ></ButtonLarge>

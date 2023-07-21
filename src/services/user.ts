@@ -22,6 +22,7 @@ class UserDataService {
     return http
       .post("/user/register", { email: email, password: password })
       .then((response: AxiosResponse<Token>) => {
+        console.log(response.data);
         const { token } = response.data;
         setAuthTokenToCookie("token", token, 365);
         setAuthTokenToAxios(token);
