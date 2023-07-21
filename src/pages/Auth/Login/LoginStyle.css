@@ -1,0 +1,15 @@
+.login-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    vertical-align: middle;
+}
+
+.login-form {
+    display: flex;
+width: 410px;
+flex-direction: column;
+align-items: center;
+gap: 36px;
+}

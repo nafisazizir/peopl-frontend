@@ -1,0 +1,24 @@
+.email-sent-container {
+    display: flex;
+    width: 410px;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+  
+  .icon-container {
+    display: flex;
+    padding: 15.873px;
+    justify-content: center;
+    align-items: center;
+    gap: 7.937px;
+  }
+  
+  .email-sent-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+  }
+  
