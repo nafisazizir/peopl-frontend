@@ -1,4 +1,4 @@
-import "./HeaderCommunityStyle.css";
+import "./HeaderStyle.css";
 import ButtonAuth from "../../components/Button/AuthButton/ButtonAuth";
 import {useNavigate} from "react-router-dom";
 import HeaderButton from "../Button/HeaderButton/HeaderButton";
@@ -6,7 +6,7 @@ import HeaderButton from "../Button/HeaderButton/HeaderButton";
 const HeaderCommunity = () => {
     return(
         <div className="header-layout">
-            <div className="header-background">
+            <div className="header-community-background">
             </div>
             <div className="header-content-layout">
                 <svg width="87" height="87" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +34,10 @@ const HeaderCommunity = () => {
                 <HeaderButton
                     onClick={() => {
 
-                    }}/>
+                    }
+                }
+                buttonText={"Join"}/>
+
             </div>
         </div>
     );

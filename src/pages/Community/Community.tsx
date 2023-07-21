@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./CommunityStyle.css";
-import HeaderCommunity from "../../components/HeaderCommunity/HeaderCommunity";
+import HeaderCommunity from "../../components/Header/HeaderCommunity";
 import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
 import PostDataService, { Post } from "../../services/post";
