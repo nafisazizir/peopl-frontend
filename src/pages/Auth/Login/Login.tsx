@@ -1,14 +1,19 @@
 import React, { ChangeEvent, useState } from "react";
 import "./LoginStyle.css";
 import Label from "../../../components/Label/Label";
+import { AxiosError } from "axios";
 
 import ButtonAuthGoogle from "../../../components/Button/AuthButton/ButtonAuthGoogle";
 import { useNavigate } from "react-router-dom";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 
+import UserDataService from "../../../services/user";
+import { logout } from "../../../hooks/auth";
+
 type Props = {};
 
 export default function Login({}: Props) {
+  logout();
   const iconPassword = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +37,9 @@ export default function Login({}: Props) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(
+    "By signing up, you agree to our Terms of Service and Privacy Policy."
+  );
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newEmail = event.target.value;
@@ -41,6 +49,24 @@ export default function Login({}: Props) {
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newPassword = event.target.value;
     setPassword(newPassword);
+  };
+
+  const handleClick = async (event: React.MouseEvent<HTMLDivElement>) => {
+    if (email === "" || password === "") {
+      setMessage("Please fill all the fields!");
+      return;
+    }
+
+    try {
+      await UserDataService.login(email, password);
+      navigate("/home");
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        setMessage(error.response.data.message);
+      } else {
+        console.log("An unknown error occurred.");
+      }
+    }
   };
 
   return (
@@ -68,11 +94,7 @@ export default function Login({}: Props) {
             ></Label>
             <ButtonLarge
               buttonText={"Log In"}
-              onClick={function (
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
+              onClick={handleClick}
               isSecondary={false}
               isGhost={false}
             />
