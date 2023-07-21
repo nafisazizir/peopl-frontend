@@ -1,72 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --neutral-100: #1d242d;
+  --neutral-90: #262f3a;
+  --neutral-80: #323e4d;
+  --neutral-70: #3f4e61;
+  --neutral-60: #435367;
+  --neutral-50: #4c5e74;
+  --neutral-40: #546881;
+  --neutral-40-2: #9caaba;
+  --neutral-30: #cad0d8;
+  --neutral-20: #e5e8ec;
+  --neutral-10: #eef0f2;
+  --neutral-0: #ffffff;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --orange-light: #fff1e6;
+  --orange-light-hover: #ffead9;
+  --orange-light-active: #fed3b0;
+  --orange-normal: #fc7201;
+  --orange-normal-hover: #e36701;
+  --orange-normal-active: #ca5b01;
+  --orange-dark: #bd5601;
+  --orange-dark-hover: #974401;
+  --orange-dark-active: #713300;
+  --orange-darker: #582800;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --violet-light: #f7efff;
+  --violet-light-hover: #f3e7ff;
+  --violet-light-active: #e6ceff;
+  --violet-normal: #ae62fe;
+  --violet-normal-hover: #9d58e5;
+  --violet-normal-active: #8b4ecb;
+  --violet-dark: #834abf;
+  --violet-dark-hover: #683b98;
+  --violet-dark-active: #4e2c72;
+  --violet-darker: #3d2259;
+
+  --danger-normal: #f5485d;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
-a:hover {
-  color: #535bf2;
+
+.logo-app {
+  color: var(--neutral-100, #1d242d);
+  font-family: Avenir;
+  font-size: 33.861px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.text-center {
+  align-items: center !important;
+  text-align: center !important;
+  display: flex;
+}
+
+.text-danger {
+  color: var(--danger-normal);
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 32px;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  color: var(--neutral-100);
+
+  /* Header/H1 */
+  font-family: "Inter", sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+h2 {
+  color: var(--neutral-100);
+
+  /* Header/H2 */
+  font-family: "Inter", sans-serif;
+
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+h3 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Header/H3 */
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+h4 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Header/H4 */
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+h5 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Header/H5 */
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+h6 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Header/H6 */
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.body-p1 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Body/P1 */
+  font-family: "Inter", sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p2 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Body/P2 */
+  font-family: "Inter", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p3 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Body/P3 */
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p4 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Body/P4 */
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p5 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Body/P5 */
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p6 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Body/P6 */
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p7 {
+  color: var(--neutral-100, #1d242d);
+
+  /* Body/P7 */
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p8 {
+  color: var(--neutral-402, #9caaba);
+  text-align: center;
+
+  /* Body/P8 */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.body-p9 {
+  color: var(--neutral-402, #9caaba);
+  text-align: center;
+
+  /* Body/P9 */
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body {
+    margin: 48px;
+    margin-left: 48px;
+    margin-right: 48px;
   }
-  a:hover {
-    color: #747bff;
+  .logo-app {
+    font-size: 21.153px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-  button {
-    background-color: #f9f9f9;
+  h1 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  .body-p5 {
+    font-size: 16px;
+  }
+
+  .body-p6 {
+    font-size: 14px;
+  }
+
+  .body-p8 {
+    font-size: 12px;
+  }
+
+  .body-p9 {
+    font-size: 10px;
   }
 }
