@@ -1,0 +1,76 @@
+.button-large {
+    display: inline-flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+  }
+  
+  /* .button-large:hover {
+    display: inline-flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  } */
+  
+  .button-large-style {
+    align-items: center;
+    border-radius: 6px;
+    background: var(--orange-normal, #fc7201);
+    color: var(--neutral-0, #fff);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+  }
+  
+  .button-large-style:hover {
+    border-radius: 6px;
+    background: var(--orange-dark, #bd5601);
+  }
+  
+  .button-large-secondary-style {
+    align-items: center;
+    border-radius: 6px;
+    border: 1.2px solid var(--orange-normal, #fc7201);
+    color: var(--orange-normal, #fc7201);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    align-self:self-end !important;
+  }
+  
+  .button-large-secondary-style:hover {
+    border-radius: 6px;
+    background: var(--orange-dark, #bd5601);
+    color: var(--neutral-0, #FFF);
+  }
+  
+  .button-large-ghost {
+    border-radius: 6px;
+  }
+  
+  .button-large-ghost-style {
+    align-items: center;
+    color: var(--orange-normal, #fc7201);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+  }
+  
+  .button-large-ghost-style:hover {
+    color: var(--orange-dark, #bd5601);
+    border-radius: 6px;
+  border: 1.2px solid var(--orange-dark, #BD5601);
+  }
+  

@@ -1,0 +1,78 @@
+.create-post-home-container {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    gap: 24px;
+    border-radius: 8px;
+    background: var(--neutral-0, #fff);
+    margin: 40px 0px;
+  }
+  
+  .create-post-home-profile-button {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .create-post-home-profile-button .text {
+    color: var(--orange-normal, #fc7201);
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+  }
+  
+  .create-post-home-input {
+    display: flex;
+    height: 46px;
+    padding: 0px 16px;
+    align-items: center;
+    gap: 12px;
+    flex: 1 0 0;
+  
+    border-radius: 24px;
+    border: 1px solid var(--neutral-30, #cad0d8);
+    background: var(--neutral-11, #f6f8fb);
+  
+    color: var(--neutral-402, #9caaba);
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  
+    cursor: pointer;
+  }
+  
+  .create-post-home-mobile {
+    display: none;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+  
+    border-radius: 100px;
+    background: var(--orange-normal, #fc7201);
+  }
+  
+  @media (max-width: 560px) {
+    .create-post-home-container {
+      display: none;
+    }
+  
+    .create-post-home-mobile {
+      display: flex;
+    }
+  }
+  

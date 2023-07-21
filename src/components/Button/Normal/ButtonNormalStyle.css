@@ -1,0 +1,62 @@
+.button-normal {
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    display: flex;
+  }
+  
+  .button-normal-style {
+    border-radius: 6px;
+    background: var(--orange-normal, #fc7201);
+    color: var(--neutral-0, #fff);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+  }
+  
+  .button-normal-style:hover {
+    border-radius: 6px;
+    background: var(--orange-dark, #bd5601);
+  }
+  
+  .button-normal-secondary-style {
+    align-items: center;
+    border-radius: 6px;
+    border: 1.2px solid var(--orange-normal, #fc7201);
+    color: var(--orange-normal, #fc7201);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+  }
+  
+  .button-normal-secondary-style:hover {
+    border-radius: 6px;
+    background: var(--orange-dark, #bd5601);
+  }
+  
+  .button-normal-ghost {
+    border-radius: 6px;
+  }
+  
+  .button-normal-ghost-style {
+    align-items: center;
+    color: var(--orange-normal, #fc7201);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+  }
+  
+  .button-normal-ghost-style:hover {
+    color: var(--orange-dark, #bd5601);
+  }
+  

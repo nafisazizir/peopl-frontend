@@ -1,0 +1,17 @@
+.button-auth {
+    background-color: var(--neutral-0);
+    border-radius: 8px;
+    border: 1px solid var(--neutral-402, #9caaba);
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+}
+
+@media (max-width: 768px) {
+    .button-auth {
+        padding: 12px 16px;
+    }
+}
