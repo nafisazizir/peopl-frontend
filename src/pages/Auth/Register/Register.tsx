@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import "./RegisterStyle.css";
 import Label from "../../../components/Label/Label";
 import { AxiosError } from "axios";
@@ -59,9 +59,10 @@ export default function Register({}: Props) {
     setConfirmPassword(newConfirmPassword);
   };
 
-  const handleClick = async (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = async () => {
     if (email === "" || password === "" || confirmPassword === "") {
       setMessage("Please fill all the fields!");
+      console.log(message);
       return;
     }
 
