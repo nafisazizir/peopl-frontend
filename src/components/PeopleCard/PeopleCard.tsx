@@ -103,9 +103,16 @@ export default function PeopleCard({ user, numOfPost }: Props) {
           <h6 className="grey-402">·</h6>
           <div className="body-p8">{numOfPost} Posts</div>
         </div>
-        <ButtonNormal buttonText={"Join"} isSecondary={false} isGhost={false} onClick={function (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
-                  throw new Error("Function not implemented.");
-              } }/>
+        <ButtonNormal
+          buttonText={"Join"}
+          isSecondary={false}
+          isGhost={false}
+          onClick={function (
+            event: React.MouseEvent<HTMLDivElement, MouseEvent>
+          ): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </div>
     </>
   );

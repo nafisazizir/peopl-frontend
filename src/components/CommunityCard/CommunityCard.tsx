@@ -19,7 +19,7 @@ export default function CommunityCard({
     <>
       <div className="com-container">
         <div className="com-detail">
-        <svg
+          <svg
             className="post-card-community-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -58,12 +58,18 @@ export default function CommunityCard({
               <div className="body-p8">{numOfPost} Posts</div>
             </div>
             <div className="body-p8 grey-40">{description}</div>
-
           </div>
         </div>
-        <ButtonNormal buttonText={"Join"} isSecondary={false} isGhost={false} onClick={function (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
-                  throw new Error("Function not implemented.");
-              } }/>
+        <ButtonNormal
+          buttonText={"Join"}
+          isSecondary={false}
+          isGhost={false}
+          onClick={function (
+            event: React.MouseEvent<HTMLDivElement, MouseEvent>
+          ): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </div>
     </>
   );

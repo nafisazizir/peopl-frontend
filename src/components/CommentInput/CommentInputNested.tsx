@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import "./CommentInputStyle.css";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
-import { useNavigate } from "react-router-dom";
 import PostDataService from "../../services/post";
 
 interface CommentInputNestedProps {

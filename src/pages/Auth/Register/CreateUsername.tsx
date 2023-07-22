@@ -122,7 +122,9 @@ export default function CreateUsername({}: Props) {
             <ButtonNormal
               iconLeft={iconBack}
               buttonText={"Back to Register"}
-              onClick={() => {navigate("/register")}}
+              onClick={() => {
+                navigate("/register");
+              }}
               isSecondary={false}
               isGhost={true}
             ></ButtonNormal>

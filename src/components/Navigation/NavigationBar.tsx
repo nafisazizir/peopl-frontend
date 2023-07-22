@@ -36,7 +36,7 @@ const NavigationBar = () => {
               />
             </svg>
             <div className="nav-item">Matchmaking</div>
-        </div>
+          </div>
         </NavLink>
         <SearchBar />
         <svg

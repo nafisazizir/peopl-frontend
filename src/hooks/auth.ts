@@ -1,5 +1,4 @@
 import http from "../http-common";
-import jwt_decode, { JwtPayload } from "jwt-decode";
 
 export const setAuthTokenToAxios = (token: string) => {
   if (token) {
