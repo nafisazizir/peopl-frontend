@@ -1,19 +1,16 @@
 .header-layout {
     background-color: var(--neutral-0);
-    height: 280px;
-    top: 0;
+    height: 260px;
 }
 
 .header-profile-layout {
     background-color: var(--neutral-0);
     height: 180px;
-    top: 0;
 }
 
 .header-profile-other-layout {
     background-color: var(--neutral-0);
     height: 180px;
-    top: 0;
 }
 
 .header-community-background {
@@ -120,21 +117,18 @@
     .header-layout {
         background-color: var(--neutral-0);
         height: 395px;
-        top: 0;
         margin-bottom: 30px;
     }
 
     .header-profile-layout {
         background-color: var(--neutral-0);
         height: 270px;
-        top: 0;
         margin-bottom: 30px;
     }
 
     .header-profile-other-layout {
         background-color: var(--neutral-0);
         height: 330px;
-        top: 0;
         margin-bottom: 30px;
     }
 

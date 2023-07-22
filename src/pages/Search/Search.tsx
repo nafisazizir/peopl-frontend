@@ -10,6 +10,7 @@ import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
 import CommunityCard from "../../components/CommunityCard/CommunityCard";
 import PeopleCard from "../../components/PeopleCard/PeopleCard";
 import EmptyState from "../../components/EmptyState/EmptyState";
+import NavigationBar from "../../components/Navigation/NavigationBar";
 
 type Props = {};
 
@@ -18,6 +19,7 @@ export default function Search({}: Props) {
   const location = useLocation();
   const queryParams = queryString.parse(location.search);
   const keyword = queryParams.keyword;
+  document.body.style.margin = "0px 0px 0px 0px";
   const [posts, setPosts] = useState<Post[]>([]);
   const [communities, setCommunities] = useState<Community[]>([]);
   const [users, setUsers] = useState<User[]>([]);
@@ -42,6 +44,7 @@ export default function Search({}: Props) {
   }, []);
   return (
     <>
+      <NavigationBar/>
       <div className="home-layout">
         <div className="tab-container">
           <Tabs defaultIndex={0} selectedTabClassName="tab-button-active-style">

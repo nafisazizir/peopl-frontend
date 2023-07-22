@@ -8,6 +8,8 @@ import CommunityDataService, {
   CommunityDetails,
 } from "../../services/communitites";
 import { useParams } from "react-router-dom";
+import PostDataService, { Post } from "../../services/post";
+import NavigationBar from "../../components/Navigation/NavigationBar";
 
 const Community = () => {
   document.body.style.backgroundColor = "var(--neutral-10)";
@@ -56,7 +58,7 @@ const Community = () => {
         console.error("Failed to fetch posts:", error);
       }
     };
-
+    
     fetchCommunityDetails();
   }, [isMember]);
 

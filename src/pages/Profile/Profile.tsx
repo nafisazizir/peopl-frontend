@@ -6,6 +6,8 @@ import PostCard from "../../components/PostCard/PostCard";
 import { Post } from "../../services/post";
 import UserDataService, { UserDetails } from "../../services/user";
 import { useParams } from "react-router-dom";
+import PostDataService, { Post } from "../../services/post";
+import NavigationBar from "../../components/Navigation/NavigationBar";
 
 const ProfileOther = () => {
   document.body.style.backgroundColor = "var(--neutral-10)";
