@@ -33,10 +33,6 @@ const Matchmaking = () => {
     fetchJoinedCommunities();
   }, []);
 
-  const options = communities.map((community) => {
-    return { value: community, label: community };
-  });
-
   return (
     <>
       <NavigationBar />
