@@ -101,7 +101,7 @@ export default function Search({}: Props) {
           /> */}
         </div>
 
-        <ScrollButton buttonText={"Back To Top"} />
+        <ScrollButton buttonText={"Back to Top"} />
       </div>
     </>
   );

@@ -1,0 +1,19 @@
+.request-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 12px 24px;
+    gap: 12px;
+    background-color: var(--violet-light);
+    border-radius: 8px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 195px;
+}

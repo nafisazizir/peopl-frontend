@@ -82,7 +82,7 @@ const Matchmaking = () => {
                     <PeopleMutualsCard user={"u/pikachupika"} numOfMutuals={100}/>
                     <PeopleMutualsCard user={"u/pikachupika"} numOfMutuals={100}/>
                 </div>
-                <ScrollButton buttonText={"BackToTop"}/>
+                <ScrollButton buttonText={"Back to Top"}/>
             </div>
         </>
     );

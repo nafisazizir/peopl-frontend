@@ -1,0 +1,194 @@
+.chat-layout {
+    max-width: 1056px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: auto auto 80px;
+}
+
+.requests-box-container {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--neutral-0);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+.requests-container {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    height: fit-content;
+    width: 1008px;
+    justify-content: flex-start;
+}
+
+.username-text {
+    color: var(--neutral-100, #1d242d);
+
+    /* Header/H6 */
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+
+.chat-box-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.messages-panel {
+    width: 303px;
+    height: 1024px;
+    border-radius: 8px;
+    background-color: var(--neutral-0);
+}
+
+.messages-panel-header {
+    width: 100%;
+    height: 80px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.message-panel-header {
+    width: 100%;
+    height: 80px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.message-panel {
+    width: 733px;
+    height: 1024px;
+    border-radius: 8px;
+    background-color: var(--neutral-0);
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    height: fit-content;
+}
+
+.user-content {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+.status {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    align-items: center;
+}
+
+.status-text {
+    color: var(--neutral-40-2, #1d242d);
+
+    /* Header/H6 */
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+
+.message-box {
+    width: 100%;
+    height: 80%;
+    padding: 24px;
+    gap: 32px;
+}
+
+.message-received{
+    gap: 16px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.message-sent{
+    gap: 16px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.chat-bubbles-received {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.chat-bubbles-sent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.message-input-container {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    width: 100%;
+    height: fit-content;
+}
+
+.message-input {
+    width: 685px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1.2px solid var(--neutral-10);
+    padding-left: 12px;
+    padding-right: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-text {
+    color: var(--neutral-60, #9caaba);
+    text-align: center;
+
+    /* Body/P8 */
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}

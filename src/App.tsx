@@ -13,6 +13,7 @@ import Profile from "./pages/Profile/Profile";
 import Search from "./pages/Search/Search";
 import CreatePost from "./pages/Create/CreatePost";
 import Matchmaking from "./pages/Matchmaking/Matchmaking";
+import Chat from "./pages/Chat/Chat";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/search/posts" element={<Search />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/matchmaking" element={<Matchmaking />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
     </>
   );

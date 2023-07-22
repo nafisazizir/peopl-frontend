@@ -43,7 +43,7 @@ const Home = () => {
                   />
                 ))}
               </div>
-              <ScrollButton buttonText={"BackToTop"}/>
+              <ScrollButton buttonText={"Back to Top"}/>
             </div>
       </>
   );
