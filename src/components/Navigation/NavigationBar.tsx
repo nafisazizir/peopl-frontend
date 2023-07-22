@@ -1,10 +1,16 @@
 import "./NavigationBarStyle.css";
 import NotifButton from "../Button/NotificationButton/NotifButton";
-import { NavLink } from "react-router-dom";
-import user from "../../services/user";
+import { NavLink, useNavigate } from "react-router-dom";
+import { logout } from "../../hooks/auth";
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
   const username = localStorage.username ? localStorage.username : "john.doe46";
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-layout">
@@ -407,7 +413,10 @@ const NavigationBar = () => {
                         fill="#FC7201"
                       />
                     </svg>
-                    <div className="profile-modal-content-item-text">
+                    <div
+                      className="profile-modal-content-item-text"
+                      onClick={handleLogout}
+                    >
                       Log Out
                     </div>
                   </div>

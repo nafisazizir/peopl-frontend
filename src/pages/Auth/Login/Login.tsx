@@ -13,6 +13,8 @@ import { logout } from "../../../hooks/auth";
 type Props = {};
 
 export default function Login({}: Props) {
+  document.body.style.backgroundColor = "#ffff";
+  document.body.style.margin = "32px 32px 32px 32px";
   logout();
   const iconPassword = (
     <svg
