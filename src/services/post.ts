@@ -16,6 +16,19 @@ class PostDataService {
     setAuthTokenToAxios(localStorage.token);
     return http.get("/post");
   }
+
+  createPost(
+    title: string,
+    content: string,
+    community: string
+  ): Promise<AxiosResponse<Post[]>> {
+    setAuthTokenToAxios(localStorage.token);
+    return http.post("/post", {
+      title: title,
+      content: content,
+      community: community,
+    });
+  }
 }
 
 export default new PostDataService();

@@ -29,6 +29,11 @@ class CommunityDataService {
     setAuthTokenToAxios(localStorage.token);
     return http.post(`/community/${communityName}/leave`);
   }
+
+  getJoinedCommunities(): Promise<AxiosResponse<any>> {
+    setAuthTokenToAxios(localStorage.token);
+    return http.get(`/community/joined-communities`);
+  }
 }
 
 export default new CommunityDataService();
