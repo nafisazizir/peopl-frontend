@@ -22,7 +22,7 @@ const SearchBar = () => {
 
   const handleClick = () => {
     if (keyword !== "") {
-      navigate(`/search?${keyword}`);
+      navigate(`/search?keyword=${keyword}`);
     }
   };
   return (

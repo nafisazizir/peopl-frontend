@@ -44,7 +44,7 @@ export default function Search({}: Props) {
   }, []);
   return (
     <>
-      <NavigationBar/>
+      <NavigationBar />
       <div className="home-layout">
         <div className="tab-container">
           <Tabs defaultIndex={0} selectedTabClassName="tab-button-active-style">
