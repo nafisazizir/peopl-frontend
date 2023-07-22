@@ -120,7 +120,7 @@ export default function Search({}: Props) {
           </Tabs>
         </div>
 
-        <ScrollButton buttonText={"Back To Top"} />
+        <ScrollButton buttonText={"Back to Top"} />
       </div>
     </>
   );
