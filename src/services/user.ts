@@ -1,6 +1,6 @@
 import http from "../http-common";
 import { AxiosResponse } from "axios";
-import { setAuthTokenToAxios, setAuthTokenToCookie } from "../hooks/auth";
+import { setAuthTokenToAxios } from "../hooks/auth";
 
 interface User {
   username: string;
@@ -22,8 +22,9 @@ class UserDataService {
     return http
       .post("/user/register", { email: email, password: password })
       .then((response: AxiosResponse<Token>) => {
+        console.log(response.data);
         const { token } = response.data;
-        setAuthTokenToCookie("token", token, 365);
+        localStorage.token = token;
         setAuthTokenToAxios(token);
         return response;
       });
@@ -34,7 +35,7 @@ class UserDataService {
       .post("/user/login", { email: email, password: password })
       .then((response: AxiosResponse<Token>) => {
         const { token } = response.data;
-        setAuthTokenToCookie("token", token, 365);
+        localStorage.token = token;
         setAuthTokenToAxios(token);
         return response;
       });
@@ -49,7 +50,7 @@ class UserDataService {
       .post("/user/set-username", { username: newUsername })
       .then((response: AxiosResponse<Token>) => {
         const { token } = response.data;
-        setAuthTokenToCookie("token", token, 365);
+        localStorage.token = token;
         setAuthTokenToAxios(token);
         return response;
       });

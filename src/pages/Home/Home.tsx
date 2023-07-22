@@ -3,6 +3,8 @@ import "./HomeStyle.css";
 import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
 import PostDataService, { Post } from "../../services/post";
+import ScrollButton from "../../components/Button/ScrollButton/ScrollButton";
+
 
 const Home = () => {
   document.body.style.backgroundColor = "var(--neutral-10)";
@@ -13,7 +15,6 @@ const Home = () => {
     const fetchPosts = async () => {
       try {
         const response = await PostDataService.getPosts();
-        console.log(response.data);
         setPosts(response.data);
       } catch (error) {
         console.error("Failed to fetch posts:", error);
@@ -22,8 +23,6 @@ const Home = () => {
 
     fetchPosts();
   }, []);
-
-  console.log(posts);
 
   return (
     <div className="home-layout">
@@ -40,6 +39,7 @@ const Home = () => {
           />
         ))}
       </div>
+      <ScrollButton buttonText={"BackToTop"}/>
     </div>
   );
 };

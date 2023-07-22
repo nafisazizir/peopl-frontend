@@ -1,4 +1,5 @@
 .button-normal {
+  cursor: pointer;
     justify-content: center;
     align-items: center;
     gap: 16px;
