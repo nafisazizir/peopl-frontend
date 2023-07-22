@@ -108,7 +108,6 @@ export default function PeopleCard({ user, totalCommunities }: Props) {
           <h6 className="grey-402">·</h6>
           <div className="body-p8">{totalCommunities} Communities followed</div>
         </div>
-        />
       </div>
     </>
   );

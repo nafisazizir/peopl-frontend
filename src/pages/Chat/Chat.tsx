@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ChatStyle.css";
 import NavigationBar from "../../components/Navigation/NavigationBar";
 import Request from "../../components/Request/Request";
