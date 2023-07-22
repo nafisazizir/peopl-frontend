@@ -1,0 +1,26 @@
+.profile-layout {
+    width:100% !important;
+    margin: 0;
+}
+
+.profile-post-layout {
+    max-width: 1056px;
+    margin: auto;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+@media (max-width: 768px){
+    .profile-post-layout {
+        max-width: 1056px;
+        margin: auto 32px auto 32px;
+    }
+}
+
+
