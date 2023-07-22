@@ -1,14 +1,14 @@
 .home-layout {
-    max-width: 1056px;
-    margin: auto;
+  max-width: 1056px;
+  margin: auto;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
-  
 .posts {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 28px;
 }
-

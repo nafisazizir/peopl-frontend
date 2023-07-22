@@ -1,6 +1,15 @@
 import "./CreatePostHomeStyle.css";
+import { useNavigate } from "react-router-dom";
 
 const CreatePostHome = () => {
+  const username = localStorage.username ? localStorage.username : "john.doe";
+  const navigate = useNavigate();
+  const handleUsernameClick = () => {
+    navigate(`/profile/${username}`);
+  };
+  const handleCreatePostClick = () => {
+    navigate(`/create`);
+  };
   return (
     <>
       <div className="create-post-home-container">
@@ -92,9 +101,13 @@ const CreatePostHome = () => {
               </clipPath>
             </defs>
           </svg>
-          <div className="text">PokemonAir77</div>
+          <div className="text" onClick={handleUsernameClick}>
+            {username}
+          </div>
         </div>
-        <div className="create-post-home-input">Create a post</div>
+        <div className="create-post-home-input" onClick={handleCreatePostClick}>
+          Create a post
+        </div>
       </div>
       <div className="create-post-home-mobile">
         <svg

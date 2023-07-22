@@ -32,6 +32,7 @@ export default function Search({}: Props) {
         const response = await SearchDataService.search({
           keyword: keyword,
         });
+        console.log(response.data);
         setPosts(response.data.posts);
         setCommunities(response.data.communities);
         setUsers(response.data.users);
@@ -42,9 +43,26 @@ export default function Search({}: Props) {
 
     fetchSearch();
   }, []);
+
+  useEffect(() => {
+    const fetchSearch = async () => {
+      try {
+        const response = await SearchDataService.search({
+          keyword: keyword,
+        });
+        setPosts(response.data.posts);
+        setCommunities(response.data.communities);
+        setUsers(response.data.users);
+      } catch (error) {
+        console.error("Failed to fetch:", error);
+      }
+    };
+
+    fetchSearch();
+  }, [keyword]);
   return (
     <>
-      <NavigationBar/>
+      <NavigationBar />
       <div className="home-layout">
         <div className="tab-container">
           <Tabs defaultIndex={0} selectedTabClassName="tab-button-active-style">

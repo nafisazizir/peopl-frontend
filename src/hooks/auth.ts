@@ -58,5 +58,6 @@ export const removeAuthTokenToAxios = () => {
 
 export const logout = () => {
   localStorage.removeItem("token");
+  localStorage.removeItem("username");
   removeAuthTokenToAxios();
 };

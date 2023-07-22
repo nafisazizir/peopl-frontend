@@ -1,0 +1,8 @@
+*:focus {
+  outline: none;
+}
+
+.dropdown-community {
+  width: 100%;
+  margin: 0px 12px;
+}

@@ -1,256 +1,225 @@
 .navbar {
-    background-color: var(--neutral-0);
-    display: flex;
-    justify-content: center;
-    height: 64px;
-    top: 0;
+  background-color: var(--neutral-0);
+  display: flex;
+  justify-content: center;
+  height: 64px;
+  top: 0;
 }
 
 .navbar-layout {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin: auto 120px auto 120px;
-    width: 100%;
-    gap: 24px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: auto 120px auto 120px;
+  width: 100%;
+  gap: 24px;
 }
 
 .nav-item {
-    display: flex;
-    color: var(--neutral-100, #9caaba);
-    text-align: center;
-    gap: 16px;
-    /* Body/P8 */
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+  display: flex;
+  color: var(--neutral-100, #9caaba);
+  text-align: center;
+  gap: 16px;
+  /* Body/P8 */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .nav-item-2 {
-    display: flex;
-    color: var(--neutral-100, #9caaba);
-    text-align: center;
-    gap: 16px;
-    /* Body/P8 */
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    margin-right: -10px;
-    cursor: pointer;
+  display: flex;
+  color: var(--neutral-100, #9caaba);
+  text-align: center;
+  gap: 16px;
+  /* Body/P8 */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-right: -10px;
+  cursor: pointer;
 }
 
-.icon{
-    stroke: #1D242D;
+.icon {
+  stroke: #1d242d;
 }
 
 .icon:hover {
-    stroke: var(--orange-normal);
+  stroke: var(--orange-normal);
 }
 
 .nav-item:hover {
-    display: flex;
-    color: var(--neutral-100, #9caaba);
-    text-align: center;
-    gap: 16px;
-    /* Body/P8 */
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    cursor: pointer;
-}
-
-.searchbar {
-    display: flex;
-    height: 46px;
-    padding: 0px 16px;
-    align-items: center;
-    gap: 12px;
-    flex: 1 0 0;
-
-    border-radius: 24px;
-    border: 1px solid var(--neutral-30, #cad0d8);
-    background: var(--neutral-11, #f6f8fb);
-
-    color: var(--neutral-402, #9caaba);
-    font-family: Inter, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    cursor: pointer;
-}
-
-.searchbar-input {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    align-items: center;
+  display: flex;
+  color: var(--neutral-100, #9caaba);
+  text-align: center;
+  gap: 16px;
+  /* Body/P8 */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  cursor: pointer;
 }
 
 .profile {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    margin:8px -5px 8px 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  margin: 8px -5px 8px 15px;
 }
 
 .profile-name {
-    color: var(--orange-normal, #1d242d);
+  color: var(--orange-normal, #1d242d);
 
-    /* Body/P6 */
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  /* Body/P6 */
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .dropdown-modal {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
-.dropdown-profile{
-    position: relative;
-    display: inline-block;
+.dropdown-profile {
+  position: relative;
+  display: inline-block;
 }
 
 .profile-modal {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 250px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    left: 0;
-    margin-top: 25px;
-    border-radius: 12px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 255px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: 0;
+  margin-top: 25px;
+  border-radius: 12px;
 }
 
 .profile-modal-content {
-    padding: 12px 16px;
-    text-decoration: none;
-    width: 100%;
-    display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
 }
 
 .notification-modal {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 251px;
-    padding: 10px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    left:-220px;
-    border-radius: 12px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 251px;
+  padding: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: -220px;
+  border-radius: 12px;
 }
 
 .notification-modal-content {
-    padding: 12px 16px;
-    text-decoration: none;
-    width: 100%;
-    display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
 }
 
 .modal-button {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .notification-modal-content-text-head {
-    color: var(--neutral-402, #9caaba);
-    text-align: start;
+  color: var(--neutral-402, #9caaba);
+  text-align: start;
 
-    /* Body/P9 */
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+  /* Body/P9 */
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }
 
 .profile-modal-content-item {
-    display: flex;
-    flex-direction: row;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    gap: 12px;
-    cursor: pointer;
-    align-items: center;
-    margin-left: 16px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 12px;
+  cursor: pointer;
+  align-items: center;
+  margin-left: 16px;
 }
 
 .profile-modal-content-item-text {
-    color: var(--orange-normal, #9caaba);
-    text-align: start;
+  color: var(--orange-normal, #9caaba);
+  text-align: start;
 
-    /* Body/P9 */
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  /* Body/P9 */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .notification-modal-content-item {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    margin-top: 8px;
-    cursor: pointer;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 8px;
+  cursor: pointer;
+  align-items: center;
 }
 
 .notification-modal-content-item-text {
-    color: var(--neutral-100, #9caaba);
-    text-align: start;
+  color: var(--neutral-100, #9caaba);
+  text-align: start;
 
-    /* Body/P9 */
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  /* Body/P9 */
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .dropdown-modal:hover .notification-modal {
-    display: block;
+  display: block;
 }
 
-.notification-modal:hover{
-    display: block;
+.notification-modal:hover {
+  display: block;
 }
 
 .svg-container {
-
 }
 
 .dropdown-profile:hover {
-    background-color: var(--orange-light-hover);
-    border-radius: 6px;
+  background-color: var(--orange-light-hover);
+  border-radius: 6px;
 }
 
 .dropdown-profile:hover .svg-container {
-    transform: rotate(-180deg)
+  transform: rotate(-180deg);
 }
 
 .dropdown-profile:hover .profile-modal {
-    display: block;
+  display: block;
 }
 
 .profile-modal:hover {
-    display: block;
+  display: block;
 }
-
