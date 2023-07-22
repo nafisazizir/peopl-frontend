@@ -1,31 +1,49 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./CommentCardStyle.css";
-import ButtonLarge from "../Button/Large/ButtonLarge";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
-import CommentInput from "../CommentInput/CommentInput";
 import { useCollapse } from "react-collapsed";
 import CommentInputNested from "../CommentInput/CommentInputNested";
 import ChildComment from "./ChildComment";
+import { Comment } from "../../services/post";
 
-export type Comment = {
-  createdAt: string;
-  content: string;
-  author: string;
-  replies: Array<Comment>;
-};
+
 
 type CommentCardProps = {
   comment: Comment;
 };
 
+function getRelativeTime(createdAt: Date): string {
+  const now = new Date();
+  const diffInSeconds = Math.floor(
+    (now.getTime() - createdAt.getTime()) / 1000
+  );
+
+  const timeUnits: { [unit: string]: number } = {
+    year: 31536000,
+    month: 2592000,
+    week: 604800,
+    day: 86400,
+    hour: 3600,
+    minute: 60,
+  };
+
+  for (const unit in timeUnits) {
+    const seconds = timeUnits[unit as keyof typeof timeUnits];
+    const interval = Math.floor(diffInSeconds / seconds);
+
+    if (interval >= 1) {
+      return `${interval}${unit.charAt(0)}`;
+    }
+  }
+
+  return "now";
+}
+
 function CommentCard({ comment }: CommentCardProps) {
   const [isReplying, setIsReplying] = useState(false);
   const [isExpanded, setExpanded] = useState(false);
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-  const [comments, setComments] = useState(comment.replies);
-  const onComment = (newComment: Comment) => {
-    setComments((prev) => [newComment, ...prev]);
-  };
+  const username = localStorage.username ? localStorage.username : "john.doe46";
 
   const profpic = (
     <svg
@@ -128,10 +146,10 @@ function CommentCard({ comment }: CommentCardProps) {
         <div className="comment-header">
           <div className="comment-username">
             {profpic}
-            <div className="body-p6">u/PokemonAir77</div>
+            <div className="body-p6">{username}</div>
           </div>
           <div className="comment-left">
-            <div className="body-p8">{comment.createdAt}</div>
+            <div className="body-p8">{getRelativeTime(new Date(comment.createdAt))}</div>
           </div>
         </div>
         <div className="comment-body">
@@ -143,7 +161,7 @@ function CommentCard({ comment }: CommentCardProps) {
           className="comment-footer"
           {...getToggleProps({ onClick: handleOnClick })}
         >
-          {isExpanded ? (
+          {isExpanded && isReplying ? (
             ""
           ) : (
             <ButtonNormal
@@ -163,14 +181,14 @@ function CommentCard({ comment }: CommentCardProps) {
               onHide={() => {
                 setExpanded(false), setIsReplying(false);
               }}
-              onComment={onComment}
+              parentID={comment._id}
             />
           </div>
         ) : (
           ""
         )}
 
-        <ChildComment childComment={comments}/>
+        <ChildComment childComment={comment.replies} />
       </div>
     </>
   );

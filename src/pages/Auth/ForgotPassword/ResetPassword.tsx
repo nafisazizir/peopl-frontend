@@ -42,9 +42,16 @@ export default function ResetPassword({}: Props) {
             value={newConfirmPassword}
             onChange={handleNewConfirmPassword}
           ></Label>
-          <ButtonLarge buttonText={"Reset My Password"} onClick={function (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
-                      throw new Error("Function not implemented.");
-                  } } isSecondary={false} isGhost={false}/>
+          <ButtonLarge
+            buttonText={"Reset My Password"}
+            onClick={function (
+              event: React.MouseEvent<HTMLDivElement, MouseEvent>
+            ): void {
+              throw new Error("Function not implemented.");
+            }}
+            isSecondary={false}
+            isGhost={false}
+          />
         </div>
       </div>
     </>

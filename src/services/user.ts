@@ -58,10 +58,12 @@ class UserDataService {
 
   setNewUsername(newUsername: string): Promise<AxiosResponse<Token>> {
     return http
-      .post("/user/set-username", { username: newUsername })
+      .post(`/user/set-username/${newUsername}`)
       .then((response: AxiosResponse<Token>) => {
-        const { token } = response.data;
+        console.log(response.data);
+        const { token, username } = response.data;
         localStorage.token = token;
+        localStorage.username = username;
         setAuthTokenToAxios(token);
         return response;
       });

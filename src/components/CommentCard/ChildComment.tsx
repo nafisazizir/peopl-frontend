@@ -1,25 +1,46 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./CommentCardStyle.css";
-import ButtonLarge from "../Button/Large/ButtonLarge";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
-import CommentInput from "../CommentInput/CommentInput";
 import { useCollapse } from "react-collapsed";
 import CommentInputNested from "../CommentInput/CommentInputNested";
-import { Comment } from "./CommentCard";
-
+import { Comment } from "../../services/post";
 
 type ChildCardProps = {
-  childComment: Array<Comment>;
+  childComment: Comment[];
 };
+
+function getRelativeTime(createdAt: Date): string {
+  const now = new Date();
+  const diffInSeconds = Math.floor(
+    (now.getTime() - createdAt.getTime()) / 1000
+  );
+
+  const timeUnits: { [unit: string]: number } = {
+    year: 31536000,
+    month: 2592000,
+    week: 604800,
+    day: 86400,
+    hour: 3600,
+    minute: 60,
+  };
+
+  for (const unit in timeUnits) {
+    const seconds = timeUnits[unit as keyof typeof timeUnits];
+    const interval = Math.floor(diffInSeconds / seconds);
+
+    if (interval >= 1) {
+      return `${interval}${unit.charAt(0)}`;
+    }
+  }
+
+  return "now";
+}
 
 function CommentCard({ childComment }: ChildCardProps) {
   const [isReplying, setIsReplying] = useState(false);
   const [isExpanded, setExpanded] = useState(false);
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-  const [comments, setComments] = useState(childComment);
-  const onComment = (newComment: Comment) => {
-    setComments((prev) => [newComment, ...prev]);
-  };
+  const username = localStorage.username ? localStorage.username : "john.doe46";
 
   const profpic = (
     <svg
@@ -116,61 +137,62 @@ function CommentCard({ childComment }: ChildCardProps) {
     // Or, set isExpanded conditionally
     setExpanded(!isExpanded);
   }
+
   return (
     <>
-        {childComment.map((comment) => (
-        
-          <div className="child-comment-container">
-            
-            <div className="rectangle"></div>
-            <div className="child-comment">
-              <div className="comment-header">
-                <div className="comment-username">
-                  {profpic}
-                  <div className="body-p6">{comment.author}</div>
-                </div>
-                <div className="comment-left">
-                  <div className="body-p8">{comment.createdAt}</div>
+      {childComment.map((comment) => (
+        <div className="child-comment-container">
+          <div className="rectangle"></div>
+          <div className="child-comment">
+            <div className="comment-header">
+              <div className="comment-username">
+                {profpic}
+                <div className="body-p6">{username}</div>
+              </div>
+              <div className="comment-left">
+                <div className="body-p8">
+                  {getRelativeTime(new Date(comment.createdAt))}
                 </div>
               </div>
-              <div className="comment-body">
-                <div className="body-p8 neutral-100 text-align-start">
-                  {comment.content}
-                </div>
+            </div>
+            <div className="comment-body">
+              <div className="body-p8 neutral-100 text-align-start">
+                {comment.content}
               </div>
-              <div
-                className="comment-footer"
-                {...getToggleProps({ onClick: handleOnClick })}
-              >
-                {isExpanded ? (
-                  ""
-                ) : (
-                  <ButtonNormal
-                    buttonText={"Reply"}
-                    isSecondary={false}
-                    isGhost={true}
-                    onClick={() => {
-                      setIsReplying(true);
-                    }}
-                  />
-                )}
-              </div>
-              {isReplying ? (
-                <div className="display-stretch" {...getCollapseProps()}>
-                  <CommentInputNested
-                    isVisible={true}
-                    onHide={() => {
-                      setExpanded(false), setIsReplying(false);
-                    }}
-                    onComment={onComment}
-                  />
-                </div>
-              ) : (
+            </div>
+            <div
+              className="comment-footer"
+              {...getToggleProps({ onClick: handleOnClick })}
+            >
+              {isExpanded ? (
                 ""
+              ) : (
+                <ButtonNormal
+                  buttonText={"Reply"}
+                  isSecondary={false}
+                  isGhost={true}
+                  onClick={() => {
+                    setIsReplying(true);
+                  }}
+                />
               )}
             </div>
+            {isReplying ? (
+              <div className="display-stretch" {...getCollapseProps()}>
+                <CommentInputNested
+                  isVisible={true}
+                  onHide={() => {
+                    setExpanded(false), setIsReplying(false);
+                  }}
+                  parentID={comment._id}
+                />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
-        ))}
+        </div>
+      ))}
     </>
   );
 }

@@ -31,13 +31,14 @@ function getRelativeTime(time: Date): string {
   return "now";
 }
 
-const ConnectionMessage: React.FC<MessageProps> = ({ username, onClick }) => {
+const ConnectionMessage: React.FC<MessageProps> = ({
+  username,
+  preview,
+  time,
+  onClick,
+}) => {
   return (
-    <div
-      className="message-component"
-      onClick={onClick}
-      style={{ cursor: "pointer" }}
-    >
+    <div className="message-component" onClick={onClick}>
       <svg
         width="48"
         height="49"
@@ -128,9 +129,9 @@ const ConnectionMessage: React.FC<MessageProps> = ({ username, onClick }) => {
       <div className="message-container">
         <div className="message-head">
           <div className="message-username">{username}</div>
-          {/* <div className="message-time">{getRelativeTime(new Date(time))}</div> */}
+          <div className="message-time">{getRelativeTime(new Date(time))}</div>
         </div>
-        {/* <div className="message-preview">{preview}</div> */}
+        <div className="message-preview">{preview}</div>
       </div>
     </div>
   );

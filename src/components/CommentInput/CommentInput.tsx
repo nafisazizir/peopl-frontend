@@ -2,20 +2,36 @@ import React, { ChangeEvent, useState } from "react";
 import "./CommentInputStyle.css";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
 import { useNavigate } from "react-router-dom";
-import { Comment } from "../CommentCard/CommentCard";
+import PostDataService from "../../services/post";
 
 interface CommentInputProps {
+  parentID: string;
   onComment: (newComment: Comment) => void;
 }
 
 const CommentInput: React.FC<CommentInputProps> = ({
-  onComment,
+  parentID,
 }: CommentInputProps) => {
   const [comment, setComment] = useState("");
-
+  const parentType = 0;
+  const username = localStorage.username ? localStorage.username : "john.doe";
   const handleComment = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newComment = event.target.value;
     setComment(newComment);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await PostDataService.createComment(
+        comment,
+        parentID,
+        parentType
+      );
+    } catch (error) {
+      console.log("An unknown error occurred.");
+    }
+    setComment("");
+    location.reload();
   };
 
   const navigate = useNavigate();
@@ -113,7 +129,7 @@ const CommentInput: React.FC<CommentInputProps> = ({
                   </clipPath>
                 </defs>
               </svg>
-              <div className="body-p7 text-orange">u/PokemonAir77</div>
+              <div className="body-p7 text-orange">{username}</div>
             </div>
           </span>
         </div>
@@ -139,14 +155,9 @@ const CommentInput: React.FC<CommentInputProps> = ({
             buttonText={"Reply"}
             isSecondary={false}
             isGhost={false}
-            onClick={() =>
-              onComment({
-                content: comment,
-                createdAt: "now",
-                author: "dummy",
-                replies: [],
-              })
-            }
+            onClick={() => {
+              handleSubmit();
+            }}
           />
         </div>
       </div>

@@ -1,56 +1,17 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import ButtonNormal from "../../components/Button/Normal/ButtonNormal";
 import PostCard from "../../components/PostCard/PostCard";
 import CommentInput from "../../components/CommentInput/CommentInput";
 import "./DetailPostStyle.css";
-import CommentCard, { Comment } from "../../components/CommentCard/CommentCard";
+import PostDataService, { Post } from "../../services/post";
+import CommentCard from "../../components/CommentCard/CommentCard";
+import NavigationBar from "../../components/Navigation/NavigationBar";
 
-export const commentDummy: Array<Comment> = [
-  {
-    createdAt: new Date().toLocaleString(),
-    content: "This is comment 1",
-    author: " u/PokemonAir77",
-    replies: [
-      {
-        createdAt: new Date().toLocaleString(),
-        content: "This is child of pokemon 1",
-        author: " u/nama user 1",
-        replies: [
-          {
-            createdAt: new Date().toLocaleString(),
-            content: "This is child of child of pokemon 1",
-            author: " u/nama user 5",
-            replies: [],
-          },
-        ],
-      },
-      {
-        createdAt: new Date().toLocaleString(),
-        content: "This is child of pokemon 1",
-        author: " u/nama user 2",
-        replies: [],
-      },
-      {
-        createdAt: new Date().toLocaleString(),
-        content: "This is child of pokemon 1",
-        author: " u/nama user 3",
-        replies: [],
-      },
-    ],
-  },
-  {
-    createdAt: new Date().toLocaleString(),
-    content: "This is comment 2",
-    author: " u/PokemonAir66",
-    replies: [],
-  },
-];
-
-export default function DetailPost({}) {
+export default function DetailPost() {
   document.body.style.backgroundColor = "var(--neutral-10)";
+  document.body.style.margin = "0px 0px 0px 0px";
   const navigate = useNavigate();
-
   const iconBack = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -68,66 +29,63 @@ export default function DetailPost({}) {
     </svg>
   );
 
-  function getRelativeTime(createdAt: Date): string {
-    const now = new Date();
-    const diffInSeconds = Math.floor(
-      (now.getTime() - createdAt.getTime()) / 1000
-    );
+  const [post, setPost] = useState<Post>();
+  const [comments, setComments] = useState(post?.comments);
+  const { id } = useParams();
 
-    const timeUnits: { [unit: string]: number } = {
-      year: 31536000,
-      month: 2592000,
-      week: 604800,
-      day: 86400,
-      hour: 3600,
-      minute: 60,
+  const onComment = () => {
+    if (comments) {
+      setComments([...comments]);
+    }
+  };
+
+  useEffect(() => {
+    const fetchDetailPost = async () => {
+      try {
+        console.log(id);
+        const response = await PostDataService.getPostDetails(id ? id : "0");
+        setPost(response.data);
+      } catch (error) {
+        console.error("Failed to fetch posts:", error);
+      }
     };
 
-    for (const unit in timeUnits) {
-      const seconds = timeUnits[unit as keyof typeof timeUnits];
-      const interval = Math.floor(diffInSeconds / seconds);
+    fetchDetailPost();
+  }, []);
 
-      if (interval >= 1) {
-        return `${interval}${unit.charAt(0)}`;
-      }
-    }
-
-    return "now";
-  }
-
-  const [comments, setComments] = useState(commentDummy);
-  const onComment = (newComment: Comment) => {
-    setComments((prev) => [newComment, ...prev]);
-  };
   return (
-    <div className="home-layout">
-      <div className="tab-navigator">
-        <ButtonNormal
-          iconLeft={iconBack}
-          buttonText={"Back to Previous Page"}
-          isSecondary={false}
-          isGhost={true}
-          onClick={() => {
-            navigate(-1);
-          }}
-        />
+    <>
+      <NavigationBar />
+      <div className="home-layout">
+        <div className="tab-navigator">
+          <ButtonNormal
+            iconLeft={iconBack}
+            buttonText={"Back to Previous Page"}
+            isSecondary={false}
+            isGhost={true}
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+        </div>
+        <div className="post-container">
+          {post && (
+            <PostCard
+              title={post.title}
+              content={post.content}
+              author={post.author}
+              community={post.community}
+              totalComments={post.totalComments}
+              createdAt={post.createdAt}
+              id={post._id}
+            />
+          )}
+
+          {post && <CommentInput onComment={onComment} parentID={post._id} />}
+          {post &&
+            post.comments.map((comment) => <CommentCard comment={comment} />)}
+        </div>
       </div>
-      <div className="post-container">
-        <PostCard
-          title={"Dummy Title Post"}
-          content={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          }
-          author={"u/PokemonAir77"}
-          community={"c/pecintapikachu"}
-          totalComments={5}
-          createdAt={new Date()}
-        />
-        <CommentInput onComment={onComment} />
-        {comments.map((comment) => (
-          <CommentCard comment={comment} />
-        ))}
-      </div>
-    </div>
+    </>
   );
 }

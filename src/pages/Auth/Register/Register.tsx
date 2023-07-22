@@ -3,7 +3,6 @@ import "./RegisterStyle.css";
 import Label from "../../../components/Label/Label";
 import { AxiosError } from "axios";
 
-import ButtonAuthGoogle from "../../../components/Button/AuthButton/ButtonAuthGoogle";
 import { useNavigate } from "react-router-dom";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 
@@ -73,7 +72,7 @@ export default function Register({}: Props) {
 
     try {
       await UserDataService.register(email, password);
-      navigate("/home");
+      navigate("./create");
     } catch (error) {
       if (error instanceof AxiosError && error.response?.data?.message) {
         setMessage(error.response.data.message);
@@ -120,16 +119,7 @@ export default function Register({}: Props) {
               isSecondary={false}
               isGhost={false}
             ></ButtonLarge>
-            <div className="or-container">
-              <hr className="line" />
-              <div className="body-p6 or">or</div>
-              <hr className="line" />
-            </div>
-            <ButtonAuthGoogle
-              onClick={() => {
-                navigate("/xxxx");
-              }}
-            />
+
             <div className="login-frame">
               <div className="body-p6">Already have an account?</div>
               <a

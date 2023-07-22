@@ -1,24 +1,46 @@
 import React, { ChangeEvent, useState } from "react";
 import "./CommentInputStyle.css";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
-import { useNavigate } from "react-router-dom";
-import { Comment } from "../CommentCard/CommentCard";
+import PostDataService from "../../services/post";
 
 interface CommentInputNestedProps {
-    isVisible: boolean,
-    onHide: any,
-    onComment: (newComment: Comment) => void;
+  isVisible: boolean;
+  onHide: any;
+  parentID: string;
 }
 
-const CommentInputNested: React.FC<CommentInputNestedProps> = ({onComment, isVisible, onHide}) => {
+const CommentInputNested: React.FC<CommentInputNestedProps> = ({
+  parentID,
+  isVisible,
+  onHide,
+}) => {
   const [comment, setComment] = useState("");
+  const username = localStorage.username ? localStorage.username : "john.doe";
+  const parentType = 1;
 
   const handleComment = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newComment = event.target.value;
     setComment(newComment);
-    event.target.value = "";
   };
 
+  const handleSubmit = async () => {
+    try {
+      console.log(parentID);
+      console.log("parent id");
+
+      const response = await PostDataService.createComment(
+        comment,
+        parentID,
+        parentType
+      );
+
+      console.log(response);
+    } catch (error) {
+      console.log("An unknown error occurred.");
+    }
+    setComment("");
+    location.reload();
+  };
   return (
     <>
       {isVisible && (
@@ -114,7 +136,7 @@ const CommentInputNested: React.FC<CommentInputNestedProps> = ({onComment, isVis
                     </clipPath>
                   </defs>
                 </svg>
-                <div className="body-p7 text-orange">u/PokemonAir77</div>
+                <div className="body-p7 text-orange">{username}</div>
               </div>
             </span>
           </div>
@@ -139,21 +161,14 @@ const CommentInputNested: React.FC<CommentInputNestedProps> = ({onComment, isVis
               isSecondary={false}
               isGhost={false}
               onClick={() => {
-                onComment({
-                  content: comment,
-                  createdAt: "now",
-                  author: "dummy",
-                  replies: []
-                })
-              }
-}
-                
+                handleSubmit();
+              }}
             />
           </div>
         </div>
       )}
     </>
   );
-}
+};
 
 export default CommentInputNested;

@@ -120,7 +120,6 @@ const profilePic = (
     </defs>
   </svg>
 );
-
 const ChatBubbleReceived: React.FC<ChatBubbleSentProps> = ({
   message,
   time,

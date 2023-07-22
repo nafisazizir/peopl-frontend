@@ -55,6 +55,11 @@
   align-items: flex-start;
   gap: 8px;
   align-self: stretch;
+  padding-left: 12px;
+}
+
+.child-comment:hover {
+  background: var(--neutral-11, #f6f8fb);
 }
 
 .rectangle {
@@ -70,4 +75,6 @@
   align-items: flex-start;
   flex: 1 0 0;
   gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
 }

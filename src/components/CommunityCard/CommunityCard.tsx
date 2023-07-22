@@ -60,9 +60,16 @@ export default function CommunityCard({
             <div className="body-p8 grey-40">{description}</div>
           </div>
         </div>
-        {/* <ButtonNormal buttonText={"Join"} isSecondary={false} isGhost={false} onClick={function (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
-                  throw new Error("Function not implemented.");
-              } }/> */}
+        <ButtonNormal
+          buttonText={"Join"}
+          isSecondary={false}
+          isGhost={false}
+          onClick={function (
+            event: React.MouseEvent<HTMLDivElement, MouseEvent>
+          ): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </div>
     </>
   );

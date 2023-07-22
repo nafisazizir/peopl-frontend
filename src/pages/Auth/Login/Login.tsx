@@ -2,8 +2,6 @@ import React, { ChangeEvent, useState } from "react";
 import "./LoginStyle.css";
 import Label from "../../../components/Label/Label";
 import { AxiosError } from "axios";
-
-import ButtonAuthGoogle from "../../../components/Button/AuthButton/ButtonAuthGoogle";
 import { useNavigate } from "react-router-dom";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 
@@ -89,7 +87,6 @@ export default function Login({}: Props) {
               labelText={"Password"}
               placeholderText={""}
               value={password}
-              addLink="Forgot your Password?"
               icon={iconPassword}
               onChange={handlePasswordChange}
               isRequired={false}
@@ -99,16 +96,6 @@ export default function Login({}: Props) {
               onClick={handleClick}
               isSecondary={false}
               isGhost={false}
-            />
-            <div className="or-container">
-              <hr className="line" />
-              <div className="body-p6 or">or</div>
-              <hr className="line" />
-            </div>
-            <ButtonAuthGoogle
-              onClick={() => {
-                navigate("/xxxx");
-              }}
             />
           </div>
           <div className="login-frame">

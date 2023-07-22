@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./HomeStyle.css";
 import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
@@ -24,7 +24,7 @@ const Home = () => {
 
     fetchPosts();
   }, []);
-
+  console.log(posts);
   return (
     <>
       <NavigationBar />
@@ -40,7 +40,8 @@ const Home = () => {
               totalComments={post.totalComments}
               createdAt={post.createdAt}
               withFooter={true}
-          />
+              id={post._id}
+            />
           ))}
         </div>
         <ScrollButton buttonText={"BackToTop"} />

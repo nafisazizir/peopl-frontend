@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ChatStyle.css";
 import NavigationBar from "../../components/Navigation/NavigationBar";
 import Request from "../../components/Request/Request";
@@ -38,7 +38,7 @@ const Chat = () => {
     fetchPendingRequest();
     fetchMessageSummary();
   }, []);
-
+    
   return (
     <>
       <NavigationBar />
