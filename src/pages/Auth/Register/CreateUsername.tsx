@@ -16,7 +16,6 @@ export default function CreateUsername({}: Props) {
   const handleUsername = (event: ChangeEvent<HTMLInputElement>) => {
     const newUsername = event.target.value;
     setUsername(newUsername);
-
   };
   const iconBack = (
     <svg
@@ -115,7 +114,6 @@ export default function CreateUsername({}: Props) {
     </svg>
   );
 
-  
   const handleRandomize = async (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -123,20 +121,16 @@ export default function CreateUsername({}: Props) {
       const response = await UserDataService.getUsernameRecommendation();
       console.log(response.data);
       setUsernames(response.data);
-
-      
     } catch (error) {
       console.error("Failed to fetch posts:", error);
     }
   };
 
-  const handleSetUsername =async (event:React.MouseEvent<HTMLDivElement>) => {
+  const handleSetUsername = async (event: React.MouseEvent<HTMLDivElement>) => {
     try {
-      console.log("berhasil set");
       const response = await UserDataService.setNewUsername(username);
-      console.log(response.data);
-     
-    }catch (error) {
+      navigate("/home");
+    } catch (error) {
       console.error("Failed to fetch posts:", error);
     }
   };
@@ -185,15 +179,22 @@ export default function CreateUsername({}: Props) {
           </div>
           <div className="recommendation-container">
             <div className="body-p7">Here are some username suggestions</div>
-            {usernames ? usernames.map((username) => 
-                <ButtonNormal
-                  buttonText={username}
-                  isSecondary={false}
-                  isGhost={true}
-                  onClick={() => {setUsername(username), navigate("/home")}}
-                />
-              ): ""}
-              
+            {usernames
+              ? usernames.map((username) => (
+                  <ButtonNormal
+                    buttonText={username}
+                    isSecondary={false}
+                    isGhost={true}
+                    onClick={() => {
+                      setUsername(username),
+                      console.log(username),
+                      console.log("ini username baru"),
+                        handleSetUsername
+                    
+                    }}
+                  />
+                ))
+              : ""}
           </div>
           <ButtonLarge
             buttonText={"Continue"}

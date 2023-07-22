@@ -120,16 +120,7 @@ export default function Register({}: Props) {
               isSecondary={false}
               isGhost={false}
             ></ButtonLarge>
-            <div className="or-container">
-              <hr className="line" />
-              <div className="body-p6 or">or</div>
-              <hr className="line" />
-            </div>
-            <ButtonAuthGoogle
-              onClick={() => {
-                navigate("/xxxx");
-              }}
-            />
+
             <div className="login-frame">
               <div className="body-p6">Already have an account?</div>
               <a
