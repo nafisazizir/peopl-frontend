@@ -3,7 +3,7 @@ import "./HeaderButtonStyle.css";
 
 interface ButtonNotifProps {
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  buttonText: string
+  buttonText: string;
 }
 
 const HeaderButton: React.FC<ButtonNotifProps> = ({ buttonText, onClick }) => {

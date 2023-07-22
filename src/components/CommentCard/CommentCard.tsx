@@ -6,8 +6,6 @@ import CommentInputNested from "../CommentInput/CommentInputNested";
 import ChildComment from "./ChildComment";
 import { Comment } from "../../services/post";
 
-
-
 type CommentCardProps = {
   comment: Comment;
 };
@@ -149,7 +147,9 @@ function CommentCard({ comment }: CommentCardProps) {
             <div className="body-p6">{username}</div>
           </div>
           <div className="comment-left">
-            <div className="body-p8">{getRelativeTime(new Date(comment.createdAt))}</div>
+            <div className="body-p8">
+              {getRelativeTime(new Date(comment.createdAt))}
+            </div>
           </div>
         </div>
         <div className="comment-body">

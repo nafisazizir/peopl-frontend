@@ -15,10 +15,8 @@ interface LabelProps {
 const Label: React.FC<LabelProps> = ({
   labelText,
   addLink,
-  handleAddLink,
   isRequired,
   placeholderText,
-  icon,
   value,
   onChange,
 }) => {

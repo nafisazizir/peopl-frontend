@@ -35,25 +35,16 @@ const MessageFooter: React.FC<MessageFooterProps> = ({ username }) => {
       </defs>
     </svg>
   );
-  const [isFocused, setIsFocused] = useState(false);
   const [message, setMessage] = useState("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
   };
 
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
-
   const handleSendMessage = async () => {
     if (message !== "") {
       try {
-        const res = await MessageDataService.sendMessage(username, message);
+        await MessageDataService.sendMessage(username, message);
         location.reload();
       } catch (error) {
         console.error("Failed to send message:", error);
@@ -68,8 +59,6 @@ const MessageFooter: React.FC<MessageFooterProps> = ({ username }) => {
           <input
             className="search-input-message"
             placeholder="Type a message"
-            onFocus={handleFocus}
-            onBlur={handleBlur}
             onChange={handleChange}
             value={message}
           />

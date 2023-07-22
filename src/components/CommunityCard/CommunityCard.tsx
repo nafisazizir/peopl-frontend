@@ -64,9 +64,7 @@ export default function CommunityCard({
           buttonText={"Join"}
           isSecondary={false}
           isGhost={false}
-          onClick={function (
-            event: React.MouseEvent<HTMLDivElement, MouseEvent>
-          ): void {
+          onClick={function (): void {
             throw new Error("Function not implemented.");
           }}
         />

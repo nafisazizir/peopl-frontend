@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ProfileStyle.css";
 import HeaderProfile from "../../components/Header/HeaderProfile";
-import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
 import { Post } from "../../services/post";
 import UserDataService, { UserDetails } from "../../services/user";
@@ -48,7 +47,6 @@ const ProfileOther = () => {
         />
 
         <div className="profile-post-layout">
-          {/* <CreatePostHome /> */}
           <div className="posts">
             {posts.map((post) => (
               <PostCard

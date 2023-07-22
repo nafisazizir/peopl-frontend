@@ -1,4 +1,3 @@
-import React from "react";
 import "./PeopleCard.css";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
 import RequestDataService from "../../services/requests";

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateUsernameStyle.css";
 import Label from "../../../components/Label/Label";
@@ -114,9 +114,7 @@ export default function CreateUsername({}: Props) {
     </svg>
   );
 
-  const handleRandomize = async (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleRandomize = async () => {
     try {
       const response = await UserDataService.getUsernameRecommendation();
       console.log(response.data);
@@ -126,9 +124,9 @@ export default function CreateUsername({}: Props) {
     }
   };
 
-  const handleSetUsername = async (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleSetUsername = async () => {
     try {
-      const response = await UserDataService.setNewUsername(username);
+      await UserDataService.setNewUsername(username);
       navigate("/home");
     } catch (error) {
       console.error("Failed to fetch posts:", error);
@@ -187,10 +185,9 @@ export default function CreateUsername({}: Props) {
                     isGhost={true}
                     onClick={() => {
                       setUsername(username),
-                      console.log(username),
-                      console.log("ini username baru"),
-                        handleSetUsername
-                    
+                        console.log(username),
+                        console.log("ini username baru"),
+                        handleSetUsername;
                     }}
                   />
                 ))

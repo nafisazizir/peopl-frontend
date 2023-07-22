@@ -20,21 +20,20 @@ const ButtonNormal: React.FC<ButtonNormalProps> = ({
   onClick,
 }) => {
   return (
-
-      <div
-        className={
-          isGhost === true
-            ? " button-normal button-normal-ghost-style"
-            : isSecondary === true
-            ? " button-normal button-normal-secondary-style"
-            : " button-normal button-normal-style"
-        } onClick={onClick}
-      >
-        {iconLeft != null && iconLeft}
-        {buttonText}
-        {iconRight != null && iconRight}
-      </div>
-
+    <div
+      className={
+        isGhost === true
+          ? " button-normal button-normal-ghost-style"
+          : isSecondary === true
+          ? " button-normal button-normal-secondary-style"
+          : " button-normal button-normal-style"
+      }
+      onClick={onClick}
+    >
+      {iconLeft != null && iconLeft}
+      {buttonText}
+      {iconRight != null && iconRight}
+    </div>
   );
 };
 

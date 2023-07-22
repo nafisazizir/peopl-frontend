@@ -1,4 +1,3 @@
-import React from "react";
 import "./EmailSentStyle.css";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 
@@ -70,9 +69,7 @@ export default function EmailSent({}: Props) {
           <div className="email-sent-button">
             <ButtonLarge
               buttonText={"Open Email App"}
-              onClick={function (
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-              ): void {
+              onClick={function (): void {
                 throw new Error("Function not implemented.");
               }}
               isSecondary={false}

@@ -22,11 +22,7 @@ const CommentInput: React.FC<CommentInputProps> = ({
 
   const handleSubmit = async () => {
     try {
-      const response = await PostDataService.createComment(
-        comment,
-        parentID,
-        parentType
-      );
+      await PostDataService.createComment(comment, parentID, parentType);
     } catch (error) {
       console.log("An unknown error occurred.");
     }

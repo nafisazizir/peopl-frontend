@@ -52,9 +52,6 @@ const Matchmaking = () => {
     fetchMatchmaking();
   }, [selectedCommunity]);
 
-  const options = communities.map((community) => {
-    return { value: community, label: community };
-  });
   return (
     <>
       <NavigationBar />

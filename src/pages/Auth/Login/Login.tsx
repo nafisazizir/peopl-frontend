@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import "./LoginStyle.css";
 import Label from "../../../components/Label/Label";
 import { AxiosError } from "axios";
@@ -51,9 +51,10 @@ export default function Login({}: Props) {
     setPassword(newPassword);
   };
 
-  const handleClick = async (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = async () => {
     if (email === "" || password === "") {
       setMessage("Please fill all the fields!");
+      console.log(message);
       return;
     }
 

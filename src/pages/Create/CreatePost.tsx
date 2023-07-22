@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import ButtonNormal from "../../components/Button/Normal/ButtonNormal";
 import { useNavigate } from "react-router-dom";
 import "./CreatePostStyle.css";
@@ -38,22 +38,6 @@ export default function CreatePost({}: Props) {
     setSelectedCommunity(newSelectedCommunity);
   };
 
-  const iconDropdown = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="17"
-      viewBox="0 0 16 17"
-      fill="none"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M4.18414 5.82668C4.423 5.597 4.80282 5.60445 5.0325 5.84332L8 8.99352L10.9675 5.84332C11.1972 5.60445 11.577 5.597 11.8159 5.82668C12.0547 6.05636 12.0622 6.43618 11.8325 6.67505L8.4325 10.275C8.31938 10.3927 8.16321 10.4592 8 10.4592C7.83679 10.4592 7.68062 10.3927 7.5675 10.275L4.1675 6.67505C3.93782 6.43618 3.94527 6.05636 4.18414 5.82668Z"
-        fill="#1D242D"
-      />
-    </svg>
-  );
   const iconTooltip = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -106,20 +90,12 @@ export default function CreatePost({}: Props) {
     fetchJoinedCommunities();
   }, []);
 
-  const options = communities.map((community) => {
-    return { value: community, label: community };
-  });
-
   const handlePost = async () => {
     if (selectedCommunity === "" || title === "" || description === "") {
       setMessage("Please fill in all required fields!");
     } else {
       try {
-        const response = await PostDataService.createPost(
-          title,
-          description,
-          selectedCommunity
-        );
+        await PostDataService.createPost(title, description, selectedCommunity);
         navigate("/home");
       } catch (error) {
         if (error instanceof AxiosError && error.response?.data?.message) {
@@ -155,11 +131,7 @@ export default function CreatePost({}: Props) {
                 iconLeft={iconTooltip}
                 isSecondary={false}
                 isGhost={true}
-                onClick={function (
-                  event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                ): void {
-                  throw new Error("Function not implemented.");
-                }}
+                onClick={() => console.log("tooltip")}
               />
             </div>
             <DropdownCommunity

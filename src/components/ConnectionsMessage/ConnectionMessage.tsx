@@ -6,37 +6,7 @@ interface MessageProps {
   username: string;
 }
 
-function getRelativeTime(time: Date): string {
-  const now = new Date();
-  const diffInSeconds = Math.floor((now.getTime() - time.getTime()) / 1000);
-
-  const timeUnits: { [unit: string]: number } = {
-    year: 31536000,
-    month: 2592000,
-    week: 604800,
-    day: 86400,
-    hour: 3600,
-    minute: 60,
-  };
-
-  for (const unit in timeUnits) {
-    const seconds = timeUnits[unit as keyof typeof timeUnits];
-    const interval = Math.floor(diffInSeconds / seconds);
-
-    if (interval >= 1) {
-      return `${interval}${unit.charAt(0)}`;
-    }
-  }
-
-  return "now";
-}
-
-const ConnectionMessage: React.FC<MessageProps> = ({
-  username,
-  preview,
-  time,
-  onClick,
-}) => {
+const ConnectionMessage: React.FC<MessageProps> = ({ username, onClick }) => {
   return (
     <div className="message-component" onClick={onClick}>
       <svg
@@ -129,9 +99,7 @@ const ConnectionMessage: React.FC<MessageProps> = ({
       <div className="message-container">
         <div className="message-head">
           <div className="message-username">{username}</div>
-          <div className="message-time">{getRelativeTime(new Date(time))}</div>
         </div>
-        <div className="message-preview">{preview}</div>
       </div>
     </div>
   );

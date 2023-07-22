@@ -19,21 +19,20 @@ const ButtonLarge: React.FC<ButtonLargeProps> = ({
   onClick,
 }) => {
   return (
-
-      <div
-        className={
-          isGhost === true
-            ? " button-large button-large-ghost-style" 
-            : isSecondary === true
-            ? " button-large button-large-secondary-style"
-            : " button-large button-large-style"
-        } onClick={onClick}
-      >
-        {iconLeft != null && iconLeft}
-        {buttonText}
-        {iconRight != null && iconRight}
-      </div>
-
+    <div
+      className={
+        isGhost === true
+          ? " button-large button-large-ghost-style"
+          : isSecondary === true
+          ? " button-large button-large-secondary-style"
+          : " button-large button-large-style"
+      }
+      onClick={onClick}
+    >
+      {iconLeft != null && iconLeft}
+      {buttonText}
+      {iconRight != null && iconRight}
+    </div>
   );
 };
 
