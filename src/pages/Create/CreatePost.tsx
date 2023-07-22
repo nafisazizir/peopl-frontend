@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import "./CreatePostStyle.css";
 import ButtonLarge from "../../components/Button/Large/ButtonLarge";
 import Label from "../../components/Label/Label";
+import NavigationBar from "../../components/Navigation/NavigationBar";
 
 type Props = {};
 
 export default function CreatePost({}: Props) {
   document.body.style.backgroundColor = "var(--neutral-10)";
+  document.body.style.margin = "0px 0px 0px 0px";
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -82,6 +84,7 @@ export default function CreatePost({}: Props) {
 
   return (
     <>
+      <NavigationBar />
       <div className="home-layout">
         <div className="tab-navigator">
           <ButtonNormal

@@ -1,0 +1,40 @@
+.button-header-notif {
+    background-color: var(--orange-normal);
+    border-radius: 8px;
+    height: fit-content;
+    width: fit-content;
+    padding-top: 12px;
+    padding-left: 16px;
+    padding-bottom: 12px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.button-text-notif {
+    color: var(--neutral-0);
+    text-align: center;
+
+    /* Body/P8 */
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media (max-width: 768px) {
+    .button-header-notif {
+        background-color: var(--orange-normal);
+        border-radius: 8px;
+        height: 50px;
+        width: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+    }
+}

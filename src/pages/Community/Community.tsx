@@ -4,6 +4,7 @@ import HeaderCommunity from "../../components/Header/HeaderCommunity";
 import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
 import PostDataService, { Post } from "../../services/post";
+import NavigationBar from "../../components/Navigation/NavigationBar";
 
 const Community = () => {
     document.body.style.backgroundColor = "var(--neutral-10)";
@@ -29,6 +30,7 @@ const Community = () => {
 
     return (
         <div className="community-layout">
+            <NavigationBar />
             <HeaderCommunity />
             <div className="community-post-layout">
                 <CreatePostHome />
