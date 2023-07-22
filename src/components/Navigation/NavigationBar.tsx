@@ -1,8 +1,10 @@
 import "./NavigationBarStyle.css";
 import NotifButton from "../Button/NotificationButton/NotifButton";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import user from "../../services/user";
 
 const NavigationBar = () => {
+  const username = localStorage.username ? localStorage.username : "john.doe46";
   return (
     <div className="navbar">
       <div className="navbar-layout">
@@ -364,7 +366,7 @@ const NavigationBar = () => {
                 </clipPath>
               </defs>
             </svg>
-            <div className="profile-name">PokemonAir77</div>
+            <div className="profile-name">{username}</div>
             <div className="svg-container">
               <svg
                 width="24"

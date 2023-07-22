@@ -16,6 +16,7 @@ interface User {
 
 interface Token {
   token: string;
+  username: string;
 }
 
 export interface UserDetails {
@@ -31,8 +32,9 @@ class UserDataService {
       .post("/user/register", { email: email, password: password })
       .then((response: AxiosResponse<Token>) => {
         console.log(response.data);
-        const { token } = response.data;
+        const { token, username } = response.data;
         localStorage.token = token;
+        localStorage.username = username;
         setAuthTokenToAxios(token);
         return response;
       });
@@ -42,8 +44,9 @@ class UserDataService {
     return http
       .post("/user/login", { email: email, password: password })
       .then((response: AxiosResponse<Token>) => {
-        const { token } = response.data;
+        const { token, username } = response.data;
         localStorage.token = token;
+        localStorage.username = username;
         setAuthTokenToAxios(token);
         return response;
       });
