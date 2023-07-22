@@ -12,6 +12,7 @@ import ResetPassword from "./pages/Auth/ForgotPassword/ResetPassword";
 import Profile from "./pages/Profile/Profile";
 import Search from "./pages/Search/Search";
 import CreatePost from "./pages/Create/CreatePost";
+import Matchmaking from "./pages/Matchmaking/Matchmaking";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/profile/other" element={<ProfileOther />} />
           <Route path="/search/posts" element={<Search />} />
           <Route path="/create" element={<CreatePost />} />
+          <Route path="/matchmaking" element={<Matchmaking />} />
         </Routes>
     </>
   );

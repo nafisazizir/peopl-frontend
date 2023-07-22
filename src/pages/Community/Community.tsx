@@ -5,6 +5,7 @@ import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
 import PostDataService, { Post } from "../../services/post";
 import NavigationBar from "../../components/Navigation/NavigationBar";
+import ScrollButton from "../../components/Button/ScrollButton/ScrollButton";
 
 const Community = () => {
     document.body.style.backgroundColor = "var(--neutral-10)";
@@ -81,8 +82,9 @@ const Community = () => {
                     {/*    />*/}
                     {/*))}*/}
                 </div>
-            </div>
 
+            </div>
+            <ScrollButton buttonText={"BackToTop"}/>
         </div>
     );
 };
