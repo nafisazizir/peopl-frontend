@@ -1,50 +1,52 @@
 .bubble-container {
-    width: fit-content;
-    height: fit-content;
-    gap: 12px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 .bubble-received {
-    width: fit-content;
-    height: fit-content;
-    border-radius: 12px;
-    gap: 12px;
-    padding: 8px 16px 8px 16px;
-    background-color: var(--neutral-10);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 12px;
+  gap: 12px;
+  padding: 8px 16px 8px 16px;
+  background-color: var(--neutral-10);
 }
 
 .bubble-sent {
-    width: fit-content;
-    height: fit-content;
-    border-radius: 12px;
-    gap: 12px;
-    padding: 8px 16px 8px 16px;
-    background-color: var(--violet-normal);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 12px;
+  gap: 12px;
+  padding: 8px 16px 8px 16px;
+  background-color: var(--violet-normal);
 }
 
 .bubble-text-received {
-    color: var(--neutral-100, #9caaba);
-    text-align: center;
+  color: var(--neutral-100, #9caaba);
+  text-align: center;
 
-    /* Body/P8 */
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+  /* Body/P8 */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }
 
 .bubble-text-sent {
-    color: var(--neutral-0, #9caaba);
-    text-align: center;
+  color: var(--neutral-0, #9caaba);
+  text-align: center;
 
-    /* Body/P8 */
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+  /* Body/P8 */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.sent {
+  justify-content: flex-end;
 }
