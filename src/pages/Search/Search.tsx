@@ -8,11 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
 import CommunityCard from "../../components/CommunityCard/CommunityCard";
 import PeopleCard from "../../components/PeopleCard/PeopleCard";
+import NavigationBar from "../../components/Navigation/NavigationBar";
 
 type Props = {};
 
 export default function Search({}: Props) {
   document.body.style.backgroundColor = "var(--neutral-10)";
+  document.body.style.margin = "0px 0px 0px 0px";
   const [posts, setPosts] = useState<Post[]>([]);
   const navigate = useNavigate();
 
@@ -31,6 +33,7 @@ export default function Search({}: Props) {
   }, []);
   return (
     <>
+      <NavigationBar/>
       <div className="home-layout">
         <div className="tab-container">
           <Tabs defaultIndex={1} selectedTabClassName="tab-button-active-style">
