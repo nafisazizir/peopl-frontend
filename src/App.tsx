@@ -28,6 +28,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/create" element={<CreatePost />} />
         <Route path="/community/:communityName" element={<Community />} />
+        <Route path="/profile/:username" element={<Profile />} />
       </Routes>
     </>
   );
