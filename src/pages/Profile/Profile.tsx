@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./ProfileStyle.css";
 import HeaderProfile from "../../components/Header/HeaderProfile";
 import CreatePostHome from "../../components/CreatePost/CreatePostHome";
