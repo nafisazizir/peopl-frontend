@@ -27,7 +27,7 @@ const CommentInput: React.FC<CommentInputProps> = ({
       console.log("An unknown error occurred.");
     }
     setComment("");
-    location.reload();
+    // location.reload();
   };
 
   const navigate = useNavigate();

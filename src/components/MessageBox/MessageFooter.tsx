@@ -45,7 +45,7 @@ const MessageFooter: React.FC<MessageFooterProps> = ({ username }) => {
     if (message !== "") {
       try {
         await MessageDataService.sendMessage(username, message);
-        location.reload();
+        // location.reload();
       } catch (error) {
         console.error("Failed to send message:", error);
       }
