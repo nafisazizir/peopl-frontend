@@ -1,16 +1,21 @@
 import React from "react";
 import "./PeopleCard.css";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   user: string;
-  numOfPost: number;
+  totalCommunities: number;
 };
 
-export default function PeopleCard({ user, numOfPost }: Props) {
+export default function PeopleCard({ user, totalCommunities }: Props) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/profile/${user}`);
+  };
   return (
     <>
-      <div className="people-container">
+      <div className="people-container" onClick={handleClick}>
         <div className="people-detail">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -101,17 +106,8 @@ export default function PeopleCard({ user, numOfPost }: Props) {
           </svg>
           <div className="body-p6">{user}</div>
           <h6 className="grey-402">·</h6>
-          <div className="body-p8">{numOfPost} Posts</div>
+          <div className="body-p8">{totalCommunities} Communities followed</div>
         </div>
-        <ButtonNormal
-          buttonText={"Join"}
-          isSecondary={false}
-          isGhost={false}
-          onClick={function (
-            event: React.MouseEvent<HTMLDivElement, MouseEvent>
-          ): void {
-            throw new Error("Function not implemented.");
-          }}
         />
       </div>
     </>

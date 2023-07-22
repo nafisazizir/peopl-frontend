@@ -1,13 +1,33 @@
 import React from "react";
 import "./PeopleCard.css";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
+import RequestDataService from "../../services/requests";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   user: string;
   numOfMutuals: number;
+  callToAction: string;
 };
 
-export default function PeopleMutualsCard({ user, numOfMutuals }: Props) {
+export default function PeopleMutualsCard({
+  user,
+  numOfMutuals,
+  callToAction,
+}: Props) {
+  const navigate = useNavigate();
+  const handleClick = async () => {
+    if (callToAction === "connect") {
+      await RequestDataService.sendRequest(user);
+      location.reload();
+    } else if (callToAction === "pending") {
+      console.log("do nothing");
+    } else if (callToAction === "accept") {
+      navigate("/chat");
+    } else {
+      navigate("/chat");
+    }
+  };
   return (
     <>
       <div className="people-container">
@@ -104,14 +124,10 @@ export default function PeopleMutualsCard({ user, numOfMutuals }: Props) {
           <div className="body-p8">{numOfMutuals} community mutuals</div>
         </div>
         <ButtonNormal
-          buttonText={"Connect"}
+          buttonText={callToAction}
           isSecondary={false}
           isGhost={false}
-          onClick={function (
-            event: React.MouseEvent<HTMLDivElement, MouseEvent>
-          ): void {
-            throw new Error("Function not implemented.");
-          }}
+          onClick={handleClick}
         />
       </div>
     </>

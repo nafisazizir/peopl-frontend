@@ -6,6 +6,9 @@ import PeopleMutualsCard from "../../components/PeopleCard/PeopleMutualsCard";
 import { useNavigate } from "react-router-dom";
 import CommunityDataService from "../../services/communitites";
 import DropdownCommunityMatchmaking from "../../components/DropdownCommunity/DropdownCommunityMatchmaking";
+import MatchmakingDataService, {
+  Matchmaking as MatchmakingInterface,
+} from "../../services/matchmaking";
 
 const Matchmaking = () => {
   document.body.style.backgroundColor = "var(--neutral-10)";
@@ -14,25 +17,44 @@ const Matchmaking = () => {
 
   const [communities, setCommunities] = useState<string[]>([]);
   const [selectedCommunity, setSelectedCommunity] = useState("");
-
   const handleSelectedCommunity = (event: ChangeEvent<HTMLInputElement>) => {
     const newSelectedCommunity = event.target.value;
     setSelectedCommunity(newSelectedCommunity);
   };
+  const [matchUsers, setMatchusers] = useState<MatchmakingInterface[]>([]);
+
+  const fetchMatchmaking = async () => {
+    try {
+      const response = await MatchmakingDataService.getMatchUsers({
+        community: selectedCommunity,
+      });
+      setMatchusers(response.data);
+    } catch (error) {
+      console.error("Failed to fetch match users:", error);
+    }
+  };
+
+  const fetchJoinedCommunities = async () => {
+    try {
+      const response = await CommunityDataService.getJoinedCommunities();
+      setCommunities(response.data);
+    } catch (error) {
+      console.error("Failed to fetch communities:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchJoinedCommunities = async () => {
-      try {
-        const response = await CommunityDataService.getJoinedCommunities();
-        setCommunities(response.data);
-      } catch (error) {
-        console.error("Failed to fetch communities:", error);
-      }
-    };
-
     fetchJoinedCommunities();
+    fetchMatchmaking();
   }, []);
 
+  useEffect(() => {
+    fetchMatchmaking();
+  }, [selectedCommunity]);
+
+  const options = communities.map((community) => {
+    return { value: community, label: community };
+  });
   return (
     <>
       <NavigationBar />
@@ -234,9 +256,13 @@ const Matchmaking = () => {
           </div>
         </div>
         <div className="mutuals-container">
-          <PeopleMutualsCard user={"u/pikachupika"} numOfMutuals={100} />
-          <PeopleMutualsCard user={"u/pikachupika"} numOfMutuals={100} />
-          <PeopleMutualsCard user={"u/pikachupika"} numOfMutuals={100} />
+          {matchUsers.map((user) => (
+            <PeopleMutualsCard
+              user={user.username}
+              numOfMutuals={user.mutualCommunities}
+              callToAction={user.callToAction}
+            />
+          ))}
         </div>
         <ScrollButton buttonText={"Back to Top"} />
       </div>

@@ -1,23 +1,25 @@
-import React from "react";
 import "./CommunityCardStyle.css";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   community: string;
   numOfMem: number;
-  numOfPost: number;
   description: string;
 };
 
 export default function CommunityCard({
   community,
   numOfMem,
-  numOfPost,
   description,
 }: Props) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/community/${community}`);
+  };
   return (
     <>
-      <div className="com-container">
+      <div className="com-container" onClick={handleClick}>
         <div className="com-detail">
           <svg
             className="post-card-community-icon"
@@ -54,8 +56,6 @@ export default function CommunityCard({
               <div className="body-p6">{community}</div>
               <h6 className="grey-402">·</h6>
               <div className="body-p8">{numOfMem} Members</div>
-              <h6 className="grey-402">·</h6>
-              <div className="body-p8">{numOfPost} Posts</div>
             </div>
             <div className="body-p8 grey-40">{description}</div>
           </div>

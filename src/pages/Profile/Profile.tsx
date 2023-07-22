@@ -48,7 +48,7 @@ const ProfileOther = () => {
         />
 
         <div className="profile-post-layout">
-          <CreatePostHome />
+          {/* <CreatePostHome /> */}
           <div className="posts">
             {posts.map((post) => (
               <PostCard

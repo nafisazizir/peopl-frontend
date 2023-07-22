@@ -1,12 +1,28 @@
 import React from "react";
 import "./RequestStyle.css";
 import ButtonRequest from "./RequestButton";
+import { useNavigate } from "react-router-dom";
+import ReqeustDataService from "../../services/requests";
 
 interface RequestProps {
+  id: string;
   username: string;
 }
 
-const Request: React.FC<RequestProps> = ({ username }) => {
+const Request: React.FC<RequestProps> = ({ id, username }) => {
+  const navigate = useNavigate();
+  const handleClickProfile = () => {
+    navigate(`/profile/${username}`);
+  };
+
+  const handleAcceptClick = async () => {
+    try {
+      await ReqeustDataService.acceptRequest(id);
+      location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="request-box">
       <svg
@@ -102,21 +118,13 @@ const Request: React.FC<RequestProps> = ({ username }) => {
           buttonText={"Accept Request"}
           isSecondary={false}
           isGhost={false}
-          onClick={function (
-            event: React.MouseEvent<HTMLDivElement, MouseEvent>
-          ): void {
-            throw new Error("Function not implemented.");
-          }}
+          onClick={handleAcceptClick}
         />
         <ButtonRequest
           buttonText={"View Profile"}
           isSecondary={true}
           isGhost={false}
-          onClick={function (
-            event: React.MouseEvent<HTMLDivElement, MouseEvent>
-          ): void {
-            throw new Error("Function not implemented.");
-          }}
+          onClick={handleClickProfile}
         />
       </div>
     </div>

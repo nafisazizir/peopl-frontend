@@ -4,8 +4,6 @@ import "./ConnectionMessageStyle.css";
 interface MessageProps {
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   username: string;
-  preview: string;
-  time: Date;
 }
 
 function getRelativeTime(time: Date): string {
