@@ -50,6 +50,7 @@ export default function Search({}: Props) {
                     community={post.community}
                     totalComments={post.totalComments}
                     createdAt={post.createdAt}
+                    withFooter={true}
                   />
                 ))}
               </div>

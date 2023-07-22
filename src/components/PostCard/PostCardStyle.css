@@ -87,6 +87,9 @@
   background: linear-gradient(transparent 150px, #ffffff);
 }
 
+.neutral-100 {
+    color: var(--neutral-100, #1D242D) !important;
+}
 @media (max-width: 560px) {
   .post-card-container {
     gap: 12px;

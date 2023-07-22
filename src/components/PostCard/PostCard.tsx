@@ -9,6 +9,7 @@ interface PostCardProps {
   community: string;
   totalComments: number;
   createdAt: Date;
+  withFooter?: boolean;
 }
 
 function getRelativeTime(createdAt: Date): string {
@@ -45,6 +46,7 @@ const PostCard: React.FC<PostCardProps> = ({
   community,
   totalComments,
   createdAt,
+  withFooter,
 }) => {
   return (
     <div className="post-card-container">
@@ -96,30 +98,39 @@ const PostCard: React.FC<PostCardProps> = ({
         </div>
       </div>
       <h4 className="title">{title}</h4>
-      <div className="body-p8 post-card-content" style={{ textAlign: "left" }}>
+      <div
+        className={
+          withFooter
+            ? "body-p8 post-card-content"
+            : "body-p8 post-card-content neutral-100"
+        }
+        style={{ textAlign: "left" }}
+      >
         {content}
       </div>
-      <div className="post-card-footer">
-        <div className="post-card-reply">
-          <svg
-            className="reply-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="25"
-            viewBox="0 0 24 25"
-            fill="none"
-          >
-            <path
-              d="M20.25 8.57024C21.1341 8.85469 21.75 9.69841 21.75 10.6674V14.953C21.75 16.0896 20.9026 17.0535 19.7697 17.1459C19.4308 17.1736 19.0909 17.1978 18.75 17.2185V20.3092L15.75 17.3092C14.3963 17.3092 13.0556 17.254 11.7302 17.1458C11.4319 17.1215 11.1534 17.0367 10.9049 16.9043M20.25 8.57024C20.0986 8.52152 19.9393 8.48921 19.7739 8.47548C18.4472 8.36536 17.1051 8.3092 15.75 8.3092C14.3948 8.3092 13.0528 8.36536 11.7261 8.47547C10.595 8.56935 9.75 9.53243 9.75 10.6674V14.9529C9.75 15.7902 10.2099 16.5338 10.9049 16.9043M20.25 8.57024V6.69651C20.25 5.0751 19.0983 3.66985 17.4903 3.46111C15.4478 3.19596 13.365 3.0592 11.2503 3.0592C9.13533 3.0592 7.05233 3.19599 5.00963 3.46119C3.40173 3.66995 2.25 5.07518 2.25 6.69658V12.9218C2.25 14.5432 3.40173 15.9485 5.00964 16.1572C5.58661 16.2321 6.16679 16.2968 6.75 16.351V21.0592L10.9049 16.9043"
-              stroke="#FC7201"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <div>{totalComments} Comments</div>
+      {withFooter === true && (
+        <div className="post-card-footer">
+          <div className="post-card-reply">
+            <svg
+              className="reply-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+            >
+              <path
+                d="M20.25 8.57024C21.1341 8.85469 21.75 9.69841 21.75 10.6674V14.953C21.75 16.0896 20.9026 17.0535 19.7697 17.1459C19.4308 17.1736 19.0909 17.1978 18.75 17.2185V20.3092L15.75 17.3092C14.3963 17.3092 13.0556 17.254 11.7302 17.1458C11.4319 17.1215 11.1534 17.0367 10.9049 16.9043M20.25 8.57024C20.0986 8.52152 19.9393 8.48921 19.7739 8.47548C18.4472 8.36536 17.1051 8.3092 15.75 8.3092C14.3948 8.3092 13.0528 8.36536 11.7261 8.47547C10.595 8.56935 9.75 9.53243 9.75 10.6674V14.9529C9.75 15.7902 10.2099 16.5338 10.9049 16.9043M20.25 8.57024V6.69651C20.25 5.0751 19.0983 3.66985 17.4903 3.46111C15.4478 3.19596 13.365 3.0592 11.2503 3.0592C9.13533 3.0592 7.05233 3.19599 5.00963 3.46119C3.40173 3.66995 2.25 5.07518 2.25 6.69658V12.9218C2.25 14.5432 3.40173 15.9485 5.00964 16.1572C5.58661 16.2321 6.16679 16.2968 6.75 16.351V21.0592L10.9049 16.9043"
+                stroke="#FC7201"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div>{totalComments} Comments</div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
