@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Label from "../../../components/Label/Label";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 import "./ResetPasswordStyle.css";
