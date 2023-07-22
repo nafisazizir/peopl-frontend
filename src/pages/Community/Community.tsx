@@ -9,6 +9,7 @@ import CommunityDataService, {
 } from "../../services/communitites";
 import { useParams } from "react-router-dom";
 import NavigationBar from "../../components/Navigation/NavigationBar";
+import ScrollButton from "../../components/Button/ScrollButton/ScrollButton";
 
 const Community = () => {
   document.body.style.backgroundColor = "var(--neutral-10)";

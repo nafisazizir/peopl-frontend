@@ -7,6 +7,7 @@ import { Post } from "../../services/post";
 import UserDataService, { UserDetails } from "../../services/user";
 import { useParams } from "react-router-dom";
 import NavigationBar from "../../components/Navigation/NavigationBar";
+import ScrollButton from "../../components/Button/ScrollButton/ScrollButton";
 
 const ProfileOther = () => {
   document.body.style.backgroundColor = "var(--neutral-10)";
