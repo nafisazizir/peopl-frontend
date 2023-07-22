@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ChangeEvent, ReactElement } from "react";
 import "./ButtonNormalStyle.css";
 
 interface ButtonNormalProps {
@@ -7,7 +7,8 @@ interface ButtonNormalProps {
   iconRight?: ReactElement;
   isSecondary: boolean;
   isGhost: boolean;
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickUsername?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ButtonNormal: React.FC<ButtonNormalProps> = ({

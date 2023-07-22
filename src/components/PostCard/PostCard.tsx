@@ -96,7 +96,7 @@ const PostCard: React.FC<PostCardProps> = ({
     navigate(`/post/${id}`);
   };
   return (
-    <div onClick={handlePostClick} className="post-card-container">
+    <div className="post-card-container">
       <div className="post-card-header">
         <div className="left">
           {communityIcon}
@@ -128,7 +128,7 @@ const PostCard: React.FC<PostCardProps> = ({
         </div>
       </div>
       <h4 className="title">{title}</h4>
-      <div
+      <div onClick={handlePostClick}
         className={
           withFooter
             ? "body-p8 post-card-content"

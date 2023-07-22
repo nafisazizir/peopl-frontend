@@ -73,7 +73,7 @@ export default function Register({}: Props) {
 
     try {
       await UserDataService.register(email, password);
-      navigate("/home");
+      navigate("./create");
     } catch (error) {
       if (error instanceof AxiosError && error.response?.data?.message) {
         setMessage(error.response.data.message);
