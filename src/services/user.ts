@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { setAuthTokenToAxios } from "../hooks/auth";
 import { Post } from "./post";
 
-interface User {
+export interface User {
   username: string;
   email: string;
   password: string;
