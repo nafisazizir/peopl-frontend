@@ -134,7 +134,7 @@
     width: 100%;
     height: fit-content;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .message-sent{
@@ -142,7 +142,7 @@
     width: 100%;
     height: fit-content;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-end;
 }
 
