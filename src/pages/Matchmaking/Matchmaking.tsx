@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import "./MatchmakingStyle.css";
 import PostDataService, {Post} from "../../services/post";
 import NavigationBar from "../../components/Navigation/NavigationBar";
@@ -6,16 +6,47 @@ import CreatePostHome from "../../components/CreatePost/CreatePostHome";
 import PostCard from "../../components/PostCard/PostCard";
 import ScrollButton from "../../components/Button/ScrollButton/ScrollButton";
 import PeopleMutualsCard from "../../components/PeopleCard/PeopleMutualsCard";
+import {useNavigate} from "react-router-dom";
+import CommunityDataService from "../../services/communitites";
+import DropdownCommunityMatchmaking from "../../components/DropdownCommunity/DropdownCommunityMatchmaking";
 
 const Matchmaking = () => {
     document.body.style.backgroundColor = "var(--neutral-10)";
     document.body.style.margin = "0px 0px 0px 0px";
+    const navigate = useNavigate();
+
+    const [communities, setCommunities] = useState<string[]>([]);
+    const [selectedCommunity, setSelectedCommunity] = useState("");
+
+    const handleSelectedCommunity = (event: ChangeEvent<HTMLInputElement>) => {
+        const newSelectedCommunity = event.target.value;
+        setSelectedCommunity(newSelectedCommunity);
+    };
+
+    useEffect(() => {
+        const fetchJoinedCommunities = async () => {
+            try {
+                const response = await CommunityDataService.getJoinedCommunities();
+                setCommunities(response.data);
+            } catch (error) {
+                console.error("Failed to fetch communities:", error);
+            }
+        };
+
+        fetchJoinedCommunities();
+    }, []);
+
+    const options = communities.map((community) => {
+        return { value: community, label: community };
+    });
 
     return (
         <>
             <NavigationBar/>
-            <div className="matchmaking-layout">
-                <div className="back">
+            <div className="matchmaking-layout" >
+                <div className="back" onClick={() => {
+                    navigate(-1);
+                }}>
                     <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7906 5.28937C13.0777 5.58795 13.0684 6.06273 12.7698 6.34983L8.83208 10.0592L12.7698 13.7686C13.0684 14.0557 13.0777 14.5305 12.7906 14.829C12.5035 15.1276 12.0287 15.1369 11.7302 14.8498L7.23017 10.5998C7.08311 10.4584 7 10.2632 7 10.0592C7 9.85519 7.08311 9.65998 7.23017 9.51858L11.7302 5.26858C12.0287 4.98149 12.5035 4.99079 12.7906 5.28937Z" fill="#FC7201"/>
                     </svg>
@@ -63,17 +94,10 @@ const Matchmaking = () => {
                     <div className="matchmaking-head-text-container-2">
                         <div className="matchmaking-head-text-style">Discover Deeper Connections with Our Friendship Filters</div>
                         <div className="matchmaking-input">
-                            <div className="filter-container">
-                                <div className="filter">
-                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12.0592" r="11.5" stroke="#546881" stroke-linecap="round" stroke-dasharray="4 4"/>
-                                    </svg>
-                                    None
-                                </div>
-                            </div>
-                            <svg width="50" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1841 17.8267C16.423 17.597 16.8028 17.6045 17.0325 17.8433L20 20.9935L22.9675 17.8433C23.1972 17.6045 23.577 17.597 23.8159 17.8267C24.0547 18.0564 24.0622 18.4362 23.8325 18.6751L20.4325 22.2751C20.3194 22.3927 20.1632 22.4592 20 22.4592C19.8368 22.4592 19.6806 22.3927 19.5675 22.2751L16.1675 18.6751C15.9378 18.4362 15.9453 18.0564 16.1841 17.8267Z" fill="#1D242D"/>
-                            </svg>
+                            <DropdownCommunityMatchmaking options={communities}
+                                                          value={selectedCommunity}
+                                                          onChange={handleSelectedCommunity}
+                            />
                         </div>
                     </div>
                 </div>
