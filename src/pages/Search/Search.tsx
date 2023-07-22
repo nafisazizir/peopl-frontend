@@ -5,7 +5,7 @@ import { Post } from "../../services/post";
 import SearchDataService, { Community, User } from "../../services/search";
 import ScrollButton from "../../components/Button/ScrollButton/ScrollButton";
 import queryString from "query-string";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
 import CommunityCard from "../../components/CommunityCard/CommunityCard";
 import PeopleCard from "../../components/PeopleCard/PeopleCard";
@@ -23,8 +23,6 @@ export default function Search({}: Props) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [communities, setCommunities] = useState<Community[]>([]);
   const [users, setUsers] = useState<User[]>([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSearch = async () => {
@@ -77,13 +75,15 @@ export default function Search({}: Props) {
                 {posts.length > 0 ? (
                   posts.map((post) => (
                     <PostCard
-                          title={post.title}
-                          content={post.content}
-                          author={post.author}
-                          community={post.community}
-                          totalComments={post.totalComments}
-                          createdAt={post.createdAt}
-                          withFooter={true} id={post._id}                  />
+                      title={post.title}
+                      content={post.content}
+                      author={post.author}
+                      community={post.community}
+                      totalComments={post.totalComments}
+                      createdAt={post.createdAt}
+                      withFooter={true}
+                      id={post._id}
+                    />
                   ))
                 ) : (
                   <EmptyState />
