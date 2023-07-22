@@ -10,7 +10,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ username }) => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchMessages = async () => {
       try {
         const response = await MessageDataService.getMessages({
           recipient: username,
@@ -21,7 +21,9 @@ const MessageBox: React.FC<MessageBoxProps> = ({ username }) => {
       }
     };
 
-    fetchPosts();
+    if (username !== "") {
+      fetchMessages();
+    }
   }, [username]);
   return (
     <div className="message-box">
