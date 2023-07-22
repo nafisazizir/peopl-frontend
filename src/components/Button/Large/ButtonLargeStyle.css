@@ -1,4 +1,5 @@
 .button-large {
+  cursor: pointer;
     display: inline-flex;
     padding: 16px;
     justify-content: center;

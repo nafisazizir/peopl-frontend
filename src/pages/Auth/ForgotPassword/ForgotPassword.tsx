@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import "./ForgotPasswordStyle.css";
 import Label from "../../../components/Label/Label";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
@@ -9,6 +9,12 @@ type Props = {};
 
 export default function ForgotPassword({}: Props) {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+
+  const handleEmail = (event: ChangeEvent<HTMLInputElement>) => {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+  };
   const iconBack = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,12 +58,8 @@ export default function ForgotPassword({}: Props) {
             labelText={"Email"}
             isRequired={true}
             placeholderText={"youremail@domain.com"}
-            value={""}
-            onChange={function (
-              event: React.ChangeEvent<HTMLInputElement>
-            ): void {
-              throw new Error("Function not implemented.");
-            }}
+            value={email}
+            onChange={handleEmail}
           />
           <ButtonLarge
             buttonText={"Get Instruction"}

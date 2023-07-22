@@ -10,6 +10,8 @@ import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword";
 import EmailSent from "./pages/Auth/ForgotPassword/EmailSent";
 import ResetPassword from "./pages/Auth/ForgotPassword/ResetPassword";
 import Profile from "./pages/Profile/Profile";
+import Search from "./pages/Search/Search";
+import CreatePost from "./pages/Create/CreatePost";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/other" element={<ProfileOther />} />
+          <Route path="/search/posts" element={<Search />} />
+          <Route path="/create" element={<CreatePost />} />
         </Routes>
     </>
   );

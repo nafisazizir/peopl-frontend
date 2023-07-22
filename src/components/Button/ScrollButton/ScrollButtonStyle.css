@@ -1,0 +1,17 @@
+.button-scroll {
+    cursor: pointer;
+  display: flex;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  position:fixed;
+  right: 54px;
+  bottom: 25px;
+  border-radius: 6px;
+  background: var(--foundation-violet-normal, #ae62fe);
+}
+
+.button-scroll-text {
+  color: var(--neutral-0, #fff) !important;
+}

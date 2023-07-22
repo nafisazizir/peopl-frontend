@@ -42,7 +42,7 @@
   
   .label-input {
     padding: 0px 12px;
-    height: 56px;
+    height:auto;
     min-width: 335px;
     border-radius: 6px;
     border: 0px solid var(--neutral-30, #eef0f2);

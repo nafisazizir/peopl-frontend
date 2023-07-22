@@ -69,17 +69,23 @@ export default function EmailSent({}: Props) {
           </div>
           <div className="email-sent-button">
             <ButtonLarge
-                          buttonText={"Open Email App"}
-                          onClick={function (
-                              event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                          ): void {
-                              throw new Error("Function not implemented.");
-                          } } isSecondary={false} isGhost={false}            />
+              buttonText={"Open Email App"}
+              onClick={function (
+                event: React.MouseEvent<HTMLDivElement, MouseEvent>
+              ): void {
+                throw new Error("Function not implemented.");
+              }}
+              isSecondary={false}
+              isGhost={false}
+            />
             <ButtonLarge
-                          buttonText={"I'll do it later"}
-                          onClick={() => {
-                              navigate("/login");
-                          } } isSecondary={false} isGhost={true}            />
+              buttonText={"I'll do it later"}
+              onClick={() => {
+                navigate("/login");
+              }}
+              isSecondary={false}
+              isGhost={true}
+            />
           </div>
         </div>
       </div>
