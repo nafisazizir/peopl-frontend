@@ -30,7 +30,10 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/create" element={<CreatePost />} />
-        <Route path="/post/:id" element={<DetailPost />} />
+        <Route path="/profile/:username" element={<Profile />} />
+        <Route path="/community/:communityName" element={<Community />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/matchmaking" element={<Matchmaking />} />        <Route path="/post/:id" element={<DetailPost />} />
         
 
       </Routes>
