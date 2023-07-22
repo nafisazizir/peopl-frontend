@@ -1,27 +1,34 @@
-# React + TypeScript + Vite
+# **Backend Repository for Poepl App**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the frontend code for the Poepl app, an ultimate online discussion forum for youth empowerment‼️ We provide a safe and supportive space for healthy discussions and skill growth. The frontend is built using React.js and interacts with the backend APIs to provide a seamless user experience.
 
-Currently, two official plugins are available:
+## **Prerequisites**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before setting up the frontend, make sure you have the following installed on your machine:
 
-## Expanding the ESLint configuration
+- Node.js: **[Download and Install Node.js](https://nodejs.org/)**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## **Getting Started**
 
-- Configure the top-level `parserOptions` property like this:
+To set up the frontend locally on your machine, follow these steps:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+1. Clone the repository:
+
+```bash
+git clone https://github.com/nafisazizir/peopl-frontend.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Install the dependencies:
+
+```bash
+cd poepl-frontend
+npm install
+```
+
+3. Make sure that you already run the backend
+4. Change the backend URL in `src/http-common.json`
+5. Start the development server:
+
+```bash
+npm run dev
+```
