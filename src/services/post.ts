@@ -1,5 +1,6 @@
 import http from "../http-common";
 import { AxiosResponse } from "axios";
+import { setAuthTokenToAxios } from "../hooks/auth";
 
 export interface Post {
   title: string;
@@ -12,6 +13,7 @@ export interface Post {
 
 class PostDataService {
   getPosts(): Promise<AxiosResponse<Post[]>> {
+    setAuthTokenToAxios(localStorage.token);
     return http.get("/post");
   }
 }
