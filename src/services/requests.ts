@@ -20,6 +20,11 @@ class RequestDataService {
     setAuthTokenToAxios(localStorage.token);
     return http.put(`/request/${id}/accept`);
   }
+
+  sendRequest(username: string): Promise<AxiosResponse<Request>> {
+    setAuthTokenToAxios(localStorage.token);
+    return http.post("/request", { recipient: username });
+  }
 }
 
 export default new RequestDataService();
