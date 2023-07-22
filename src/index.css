@@ -144,6 +144,7 @@ h6 {
   margin: 0;
 }
 
+
 .body-p1 {
   color: var(--neutral-100, #1d242d);
 
@@ -222,7 +223,7 @@ h6 {
 }
 
 .body-p8 {
-  color: var(--neutral-402, #9caaba);
+  color: var(--neutral-40-2, #9caaba);
   text-align: center;
 
   /* Body/P8 */
@@ -234,7 +235,7 @@ h6 {
 }
 
 .body-p9 {
-  color: var(--neutral-402, #9caaba);
+  color: var(--neutral-40-2, #9caaba);
   text-align: center;
 
   /* Body/P9 */

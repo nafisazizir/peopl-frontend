@@ -1,6 +1,7 @@
 import http from "../http-common";
 import { AxiosResponse } from "axios";
-import { setAuthTokenToAxios, setAuthTokenToCookie } from "../hooks/auth";
+import { setAuthTokenToAxios } from "../hooks/auth";
+import { Post } from "./post";
 
 interface User {
   username: string;
@@ -15,6 +16,14 @@ interface User {
 
 interface Token {
   token: string;
+  username: string;
+}
+
+export interface UserDetails {
+  username: string;
+  email: string;
+  followedCommunities: string[];
+  posts: Post[];
 }
 
 class UserDataService {
@@ -22,8 +31,10 @@ class UserDataService {
     return http
       .post("/user/register", { email: email, password: password })
       .then((response: AxiosResponse<Token>) => {
-        const { token } = response.data;
-        setAuthTokenToCookie("token", token, 365);
+        console.log(response.data);
+        const { token, username } = response.data;
+        localStorage.token = token;
+        localStorage.username = username;
         setAuthTokenToAxios(token);
         return response;
       });
@@ -33,8 +44,9 @@ class UserDataService {
     return http
       .post("/user/login", { email: email, password: password })
       .then((response: AxiosResponse<Token>) => {
-        const { token } = response.data;
-        setAuthTokenToCookie("token", token, 365);
+        const { token, username } = response.data;
+        localStorage.token = token;
+        localStorage.username = username;
         setAuthTokenToAxios(token);
         return response;
       });
@@ -49,13 +61,13 @@ class UserDataService {
       .post("/user/set-username", { username: newUsername })
       .then((response: AxiosResponse<Token>) => {
         const { token } = response.data;
-        setAuthTokenToCookie("token", token, 365);
+        localStorage.token = token;
         setAuthTokenToAxios(token);
         return response;
       });
   }
 
-  getUserDetails(username: string): Promise<AxiosResponse<User>> {
+  getUserDetails(username: string): Promise<AxiosResponse<UserDetails>> {
     return http.get(`/user/${username}`);
   }
 }

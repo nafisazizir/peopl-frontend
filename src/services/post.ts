@@ -13,10 +13,21 @@ export interface Post {
 
 class PostDataService {
   getPosts(): Promise<AxiosResponse<Post[]>> {
-    setAuthTokenToAxios(
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRoZVNraXBwZXI2OSIsImVtYWlsIjoicGV0ZXIuc3V0aGVybGFuZEBnbWFpbC5jb20iLCJpYXQiOjE2ODk4NjM2MTQsImV4cCI6MTcyMTM5OTYxNH0.gFdxk50oVCd1PmgKPE51SnW0FZGPa33vAkFV6xQRLDc"
-    );
+    setAuthTokenToAxios(localStorage.token);
     return http.get("/post");
+  }
+
+  createPost(
+    title: string,
+    content: string,
+    community: string
+  ): Promise<AxiosResponse<Post[]>> {
+    setAuthTokenToAxios(localStorage.token);
+    return http.post("/post", {
+      title: title,
+      content: content,
+      community: community,
+    });
   }
 }
 

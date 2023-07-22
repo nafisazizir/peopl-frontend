@@ -1,18 +1,27 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
 import ButtonNormal from "../../components/Button/Normal/ButtonNormal";
 import { useNavigate } from "react-router-dom";
 import "./CreatePostStyle.css";
 import ButtonLarge from "../../components/Button/Large/ButtonLarge";
 import Label from "../../components/Label/Label";
+import NavigationBar from "../../components/Navigation/NavigationBar";
+import CommunityDataService from "../../services/communitites";
+import DropdownCommunity from "../../components/DropdownCommunity/DropdownCommunity";
+import PostDataService from "../../services/post";
+import { AxiosError } from "axios";
 
 type Props = {};
 
 export default function CreatePost({}: Props) {
   document.body.style.backgroundColor = "var(--neutral-10)";
+  document.body.style.margin = "0px 0px 0px 0px";
   const navigate = useNavigate();
 
+  const [selectedCommunity, setSelectedCommunity] = useState("");
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("")
+  const [description, setDescription] = useState("");
+  const [communities, setCommunities] = useState<string[]>([]);
+  const [message, setMessage] = useState("Please fill in all the input");
 
   const handleTitle = (event: ChangeEvent<HTMLInputElement>) => {
     const newTitle = event.target.value;
@@ -24,6 +33,10 @@ export default function CreatePost({}: Props) {
     setDescription(newDescription);
   };
 
+  const handleSelectedCommunity = (event: ChangeEvent<HTMLInputElement>) => {
+    const newSelectedCommunity = event.target.value;
+    setSelectedCommunity(newSelectedCommunity);
+  };
 
   const iconDropdown = (
     <svg
@@ -80,8 +93,47 @@ export default function CreatePost({}: Props) {
     </svg>
   );
 
+  useEffect(() => {
+    const fetchJoinedCommunities = async () => {
+      try {
+        const response = await CommunityDataService.getJoinedCommunities();
+        setCommunities(response.data);
+      } catch (error) {
+        console.error("Failed to fetch communities:", error);
+      }
+    };
+
+    fetchJoinedCommunities();
+  }, []);
+
+  const options = communities.map((community) => {
+    return { value: community, label: community };
+  });
+
+  const handlePost = async () => {
+    if (selectedCommunity === "" || title === "" || description === "") {
+      setMessage("Please fill in all required fields!");
+    } else {
+      try {
+        const response = await PostDataService.createPost(
+          title,
+          description,
+          selectedCommunity
+        );
+        navigate("/home");
+      } catch (error) {
+        if (error instanceof AxiosError && error.response?.data?.message) {
+          setMessage(error.response.data.message);
+        } else {
+          console.log("An unknown error occurred.");
+        }
+      }
+    }
+  };
+
   return (
     <>
+      <NavigationBar />
       <div className="home-layout">
         <div className="tab-navigator">
           <ButtonNormal
@@ -110,16 +162,12 @@ export default function CreatePost({}: Props) {
                 }}
               />
             </div>
-            <Label
+            <DropdownCommunity
               labelText={"Choose Your Audience"}
               isRequired={true}
-              placeholderText={"choose a community"}
-              value={""}
-              onChange={function (
-                event: React.ChangeEvent<HTMLInputElement>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
+              options={communities}
+              value={selectedCommunity}
+              onChange={handleSelectedCommunity}
             />
             <Label
               labelText={"Title"}
@@ -136,25 +184,24 @@ export default function CreatePost({}: Props) {
               onChange={handleDescription}
             />
 
-            <div className="create-footer">
-              <ButtonLarge
-                buttonText={"Discard"}
-                isSecondary={true}
-                isGhost={false}
-                onClick={() => {
-                    navigate(-1)
-                }}
-              />
-              <ButtonLarge
-                buttonText={"Create Post"}
-                isSecondary={false}
-                isGhost={false}
-                onClick={function (
-                  event: React.MouseEvent<HTMLDivElement, MouseEvent>
-                ): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
+            <div className="create-footer-info">
+              <div className="body-p7">{message}</div>
+              <div className="create-footer">
+                <ButtonLarge
+                  buttonText={"Discard"}
+                  isSecondary={true}
+                  isGhost={false}
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                />
+                <ButtonLarge
+                  buttonText={"Create Post"}
+                  isSecondary={false}
+                  isGhost={false}
+                  onClick={handlePost}
+                />
+              </div>
             </div>
           </div>
         </div>
