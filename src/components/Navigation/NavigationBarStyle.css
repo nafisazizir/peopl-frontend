@@ -12,6 +12,7 @@
     height: 100%;
     margin: auto 120px auto 120px;
     width: 100%;
+    gap: 24px;
 }
 
 .nav-item {
@@ -40,7 +41,7 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-    margin-right: -20px;
+    margin-right: -10px;
     cursor: pointer;
 }
 
@@ -100,7 +101,7 @@
     flex-direction: row;
     gap: 16px;
     align-items: center;
-    margin:8px 0 8px 20px;
+    margin:8px -5px 8px 15px;
 }
 
 .profile-name {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./NotifButtonStyle.css";
+import "./HeaderButtonStyle.css";
 
 interface ButtonNotifProps {
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
