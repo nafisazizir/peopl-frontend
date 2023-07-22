@@ -10,7 +10,7 @@
   width: 1056px;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
   gap: 28px;
 }
 .communities {
@@ -38,6 +38,7 @@
 }
 
 .tab-button {
+  cursor: pointer;
   display: flex;
   padding: 12px 28px;
   justify-content: center;
@@ -58,6 +59,6 @@
   color: var(--foundation-violet-dark, #834abf) !important;
 }
 
-.tab-button-active-style:focus  {
-    outline: none;
+.tab-button-active-style:focus {
+  outline: none;
 }
