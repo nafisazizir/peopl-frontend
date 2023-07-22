@@ -1,6 +1,7 @@
 import http from "../http-common";
 import { AxiosResponse } from "axios";
 import { setAuthTokenToAxios } from "../hooks/auth";
+import { Post } from "./post";
 
 interface User {
   username: string;
@@ -15,6 +16,13 @@ interface User {
 
 interface Token {
   token: string;
+}
+
+export interface UserDetails {
+  username: string;
+  email: string;
+  followedCommunities: string[];
+  posts: Post[];
 }
 
 class UserDataService {
@@ -56,7 +64,7 @@ class UserDataService {
       });
   }
 
-  getUserDetails(username: string): Promise<AxiosResponse<User>> {
+  getUserDetails(username: string): Promise<AxiosResponse<UserDetails>> {
     return http.get(`/user/${username}`);
   }
 }

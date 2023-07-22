@@ -30,10 +30,12 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/other" element={<ProfileOther />} />
-          <Route path="/search/posts" element={<Search />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/matchmaking" element={<Matchmaking />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/community/:communityName" element={<Community />} />
+          <Route path="/profile/:username" element={<Profile />} />
         </Routes>
     </>
   );

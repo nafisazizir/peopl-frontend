@@ -51,7 +51,7 @@ const Label: React.FC<LabelProps> = ({
           value={value}
           onChange={onChange}
         />
-        {icon != null && <div className="icon-container">{icon}</div>}
+        {/* {icon != null && <div className="icon-container">{icon}</div>} */}
       </div>
     </div>
   );
