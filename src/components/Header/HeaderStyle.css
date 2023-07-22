@@ -1,0 +1,220 @@
+.header-layout {
+    background-color: var(--neutral-0);
+    height: 280px;
+    top: 0;
+}
+
+.header-profile-layout {
+    background-color: var(--neutral-0);
+    height: 180px;
+    top: 0;
+}
+
+.header-profile-other-layout {
+    background-color: var(--neutral-0);
+    height: 180px;
+    top: 0;
+}
+
+.header-community-background {
+    width: 100%;
+    background-color: var(--violet-normal-hover);
+    height: 100px;
+}
+
+.header-profile-background {
+    width: 100%;
+    background-color: var(--orange-normal-hover);
+    height: 100px;
+}
+
+.header-content-layout{
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    max-width: 1056px;
+    margin: -20px auto auto;
+}
+
+.header-content-title-layout {
+    display: flex;
+    align-items: flex-start;
+    grid-template-columns: auto auto auto auto;
+    height: 50px;
+    gap: 12px;
+}
+
+.header-content-title {
+    color: var(--neutral-100, #1d242d);
+    /* Header/H3 */
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 30px;
+}
+
+.header-content-text {
+    width: 85%;
+}
+
+.header-content-text-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.header-content-body {
+    color: var(--neutral-100, #1d242d);
+
+    /* Body/P6 */
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    width: 80%;
+    margin-top: 4%;
+}
+
+.header-content-title-detail {
+    color: var(--neutral-402, #9caaba);
+
+    /* Body/P6 */
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: 30px;
+    align-self: center;
+}
+
+.header-content-title-detail-2 {
+    color: var(--neutral-402, #9caaba);
+
+    /* Body/P6 */
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: 40px;
+    align-self: center;
+}
+
+.header-button-layout {
+    margin-top: -30px;
+}
+
+@media (max-width: 768px) {
+    .header-content-layout{
+        display: flex;
+        flex-direction: column;
+        max-width: 1056px;
+        margin-top: -20px;
+        align-items: center;
+    }
+
+    .header-layout {
+        background-color: var(--neutral-0);
+        height: 395px;
+        top: 0;
+        margin-bottom: 30px;
+    }
+
+    .header-profile-layout {
+        background-color: var(--neutral-0);
+        height: 270px;
+        top: 0;
+        margin-bottom: 30px;
+    }
+
+    .header-profile-other-layout {
+        background-color: var(--neutral-0);
+        height: 330px;
+        top: 0;
+        margin-bottom: 30px;
+    }
+
+    .header-button-layout {
+        margin-top: 35px;
+    }
+
+    .header-content-title {
+        color: var(--neutral-100, #1d242d);
+
+        /* Header/H4 */
+        font-family: "Inter", sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 5px;
+    }
+
+    .header-content-text-layout {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        margin-top: 5px;
+    }
+
+    .header-content-title-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 20px;
+        gap: 0;
+        margin-bottom: 5px;
+    }
+
+    .header-content-title-detail {
+        color: var(--neutral-402, #9caaba);
+        text-align: center;
+
+        /* Body/P8 */
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin-top: -10px;
+        align-self: center;
+    }
+
+    .header-content-title-detail-2 {
+        color: var(--neutral-402, #9caaba);
+        text-align: center;
+
+        /* Body/P8 */
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin-top: 0;
+        align-self: center;
+    }
+
+    .header-content-body {
+        color: var(--neutral-402, #9caaba);
+        text-align: center;
+
+        /* Body/P9 */
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        width: 85%;
+        margin: 55px auto 0 auto;
+
+    }
+
+    .header-content-text {
+        margin-bottom: 10px;
+    }
+
+}
