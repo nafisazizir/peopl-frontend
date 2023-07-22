@@ -127,7 +127,7 @@ const PostCard: React.FC<PostCardProps> = ({
           {getRelativeTime(new Date(createdAt))}
         </div>
       </div>
-      <h4 className="title">{title}</h4>
+      <h4 onClick={handlePostClick} className="title">{title}</h4>
       <div onClick={handlePostClick}
         className={
           withFooter
@@ -157,7 +157,7 @@ const PostCard: React.FC<PostCardProps> = ({
                 stroke-linejoin="round"
               />
             </svg>
-            <div>{totalComments} Comments</div>
+            <div onClick={handlePostClick}>{totalComments} Comments</div>
           </div>
         </div>
       )}

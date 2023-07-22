@@ -205,9 +205,6 @@
   display: block;
 }
 
-.svg-container {
-}
-
 .dropdown-profile:hover {
   background-color: var(--orange-light-hover);
   border-radius: 6px;

@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./CommentCardStyle.css";
-import ButtonLarge from "../Button/Large/ButtonLarge";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
-import CommentInput from "../CommentInput/CommentInput";
 import { useCollapse } from "react-collapsed";
 import CommentInputNested from "../CommentInput/CommentInputNested";
 import ChildComment from "./ChildComment";
@@ -45,7 +43,6 @@ function CommentCard({ comment }: CommentCardProps) {
   const [isReplying, setIsReplying] = useState(false);
   const [isExpanded, setExpanded] = useState(false);
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-  const [comments, setComments] = useState(comment.replies);
   const username = localStorage.username ? localStorage.username : "john.doe46";
 
   const profpic = (

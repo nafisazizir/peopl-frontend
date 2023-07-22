@@ -3,7 +3,6 @@ import "./RegisterStyle.css";
 import Label from "../../../components/Label/Label";
 import { AxiosError } from "axios";
 
-import ButtonAuthGoogle from "../../../components/Button/AuthButton/ButtonAuthGoogle";
 import { useNavigate } from "react-router-dom";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 

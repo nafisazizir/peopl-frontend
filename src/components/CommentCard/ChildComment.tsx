@@ -40,7 +40,6 @@ function CommentCard({ childComment }: ChildCardProps) {
   const [isReplying, setIsReplying] = useState(false);
   const [isExpanded, setExpanded] = useState(false);
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-  const [comments, setComments] = useState(childComment);
   const username = localStorage.username ? localStorage.username : "john.doe46";
 
   const profpic = (

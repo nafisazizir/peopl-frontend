@@ -4,7 +4,7 @@ import "./CreateUsernameStyle.css";
 import Label from "../../../components/Label/Label";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 import ButtonNormal from "../../../components/Button/Normal/ButtonNormal";
-import UserDataService, { User, UserDetails } from "../../../services/user";
+import UserDataService from "../../../services/user";
 
 type Props = {};
 

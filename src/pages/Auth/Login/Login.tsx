@@ -2,8 +2,6 @@ import React, { ChangeEvent, useState } from "react";
 import "./LoginStyle.css";
 import Label from "../../../components/Label/Label";
 import { AxiosError } from "axios";
-
-import ButtonAuthGoogle from "../../../components/Button/AuthButton/ButtonAuthGoogle";
 import { useNavigate } from "react-router-dom";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 
