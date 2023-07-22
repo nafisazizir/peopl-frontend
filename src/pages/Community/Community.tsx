@@ -8,7 +8,6 @@ import CommunityDataService, {
   CommunityDetails,
 } from "../../services/communitites";
 import { useParams } from "react-router-dom";
-import PostDataService, { Post } from "../../services/post";
 import NavigationBar from "../../components/Navigation/NavigationBar";
 
 const Community = () => {
@@ -58,7 +57,7 @@ const Community = () => {
         console.error("Failed to fetch posts:", error);
       }
     };
-    
+
     fetchCommunityDetails();
   }, [isMember]);
 
@@ -75,31 +74,34 @@ const Community = () => {
   };
 
   return (
-    <div className="community-layout">
-      <HeaderCommunity
-        name={communityDetails.name}
-        description={communityDetails.description}
-        totalMembers={communityDetails.totalMembers}
-        totalPosts={posts.length}
-        isMember={isMember}
-        joinOrLeaveClick={handleClickJoinOrLeave}
-      />
-      <div className="community-post-layout">
-        <CreatePostHome />
-        <div className="posts">
-          {posts.map((post) => (
-            <PostCard
-              title={post.title}
-              content={post.content}
-              author={post.author}
-              community={post.community}
-              totalComments={post.totalComments}
-              createdAt={post.createdAt}
-            />
-          ))}
+    <>
+      <NavigationBar />
+      <div className="community-layout">
+        <HeaderCommunity
+          name={communityDetails.name}
+          description={communityDetails.description}
+          totalMembers={communityDetails.totalMembers}
+          totalPosts={posts.length}
+          isMember={isMember}
+          joinOrLeaveClick={handleClickJoinOrLeave}
+        />
+        <div className="community-post-layout">
+          <CreatePostHome />
+          <div className="posts">
+            {posts.map((post) => (
+              <PostCard
+                title={post.title}
+                content={post.content}
+                author={post.author}
+                community={post.community}
+                totalComments={post.totalComments}
+                createdAt={post.createdAt}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

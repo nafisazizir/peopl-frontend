@@ -6,7 +6,6 @@ import PostCard from "../../components/PostCard/PostCard";
 import { Post } from "../../services/post";
 import UserDataService, { UserDetails } from "../../services/user";
 import { useParams } from "react-router-dom";
-import PostDataService, { Post } from "../../services/post";
 import NavigationBar from "../../components/Navigation/NavigationBar";
 
 const ProfileOther = () => {
@@ -39,29 +38,32 @@ const ProfileOther = () => {
   }, []);
 
   return (
-    <div className="profile-layout">
-      <HeaderProfile
-        username={userDetails.username}
-        totalfollowedCommunities={userDetails.followedCommunities.length}
-        totalPosts={posts.length}
-      />
+    <>
+      <NavigationBar />
+      <div className="profile-layout">
+        <HeaderProfile
+          username={userDetails.username}
+          totalfollowedCommunities={userDetails.followedCommunities.length}
+          totalPosts={posts.length}
+        />
 
-      <div className="profile-post-layout">
-        <CreatePostHome />
-        <div className="posts">
-          {posts.map((post) => (
-            <PostCard
-              title={post.title}
-              content={post.content}
-              author={post.author}
-              community={post.community}
-              totalComments={post.totalComments}
-              createdAt={post.createdAt}
-            />
-          ))}
+        <div className="profile-post-layout">
+          <CreatePostHome />
+          <div className="posts">
+            {posts.map((post) => (
+              <PostCard
+                title={post.title}
+                content={post.content}
+                author={post.author}
+                community={post.community}
+                totalComments={post.totalComments}
+                createdAt={post.createdAt}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
