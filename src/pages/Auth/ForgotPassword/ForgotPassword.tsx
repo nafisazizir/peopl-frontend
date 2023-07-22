@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import "./ForgotPasswordStyle.css";
 import Label from "../../../components/Label/Label";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
@@ -63,9 +63,7 @@ export default function ForgotPassword({}: Props) {
           />
           <ButtonLarge
             buttonText={"Get Instruction"}
-            onClick={function (
-              event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            ): void {
+            onClick={function (): void {
               throw new Error("Function not implemented.");
             }}
             isSecondary={false}
