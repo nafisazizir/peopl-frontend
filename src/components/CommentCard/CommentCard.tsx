@@ -164,7 +164,7 @@ function CommentCard({ comment }: CommentCardProps) {
           className="comment-footer"
           {...getToggleProps({ onClick: handleOnClick })}
         >
-          {isExpanded ? (
+          {isExpanded && isReplying ? (
             ""
           ) : (
             <ButtonNormal

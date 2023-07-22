@@ -10,6 +10,7 @@ import NavigationBar from "../../components/Navigation/NavigationBar";
 
 export default function DetailPost() {
   document.body.style.backgroundColor = "var(--neutral-10)";
+  document.body.style.margin = "0px 0px 0px 0px";
   const navigate = useNavigate();
   const iconBack = (
     <svg
