@@ -1,6 +1,4 @@
 import "./HeaderStyle.css";
-import ButtonAuth from "../../components/Button/AuthButton/ButtonAuth";
-import { useNavigate } from "react-router-dom";
 import HeaderButton from "../Button/HeaderButton/HeaderButton";
 
 interface HeaderCommunityProps {
