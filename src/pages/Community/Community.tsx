@@ -96,8 +96,7 @@ const Community = () => {
                 author={post.author}
                 community={post.community}
                 totalComments={post.totalComments}
-                createdAt={post.createdAt}
-              />
+                createdAt={post.createdAt} id={post._id}              />
             ))}
           </div>
         </div>

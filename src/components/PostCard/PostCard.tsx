@@ -3,6 +3,7 @@ import "./PostCardStyle.css";
 import { useNavigate } from "react-router-dom";
 
 interface PostCardProps {
+  id: string;
   title: string;
   content: string;
   author: string;
@@ -40,6 +41,7 @@ function getRelativeTime(createdAt: Date): string {
 }
 
 const PostCard: React.FC<PostCardProps> = ({
+  id, 
   title,
   content,
   author,
@@ -90,8 +92,12 @@ const PostCard: React.FC<PostCardProps> = ({
     navigate(`/profile/${author}`);
   };
 
+  const handlePostClick = () =>
+  {
+    navigate(`/post/${id}`)
+  }
   return (
-    <div className="post-card-container">
+    <div onClick={handlePostClick} className="post-card-container">
       <div className="post-card-header">
         <div className="left">
           {communityIcon}
@@ -152,7 +158,7 @@ const PostCard: React.FC<PostCardProps> = ({
                 stroke-linejoin="round"
               />
             </svg>
-            <div>{totalComments} Comments</div>
+            <div >{totalComments} Comments</div>
           </div>
         </div>
       )}

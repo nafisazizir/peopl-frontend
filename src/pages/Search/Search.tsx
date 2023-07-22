@@ -77,14 +77,13 @@ export default function Search({}: Props) {
                 {posts.length > 0 ? (
                   posts.map((post) => (
                     <PostCard
-                      title={post.title}
-                      content={post.content}
-                      author={post.author}
-                      community={post.community}
-                      totalComments={post.totalComments}
-                      createdAt={post.createdAt}
-                      withFooter={true}
-                  />
+                          title={post.title}
+                          content={post.content}
+                          author={post.author}
+                          community={post.community}
+                          totalComments={post.totalComments}
+                          createdAt={post.createdAt}
+                          withFooter={true} id={post._id}                  />
                   ))
                 ) : (
                   <EmptyState />

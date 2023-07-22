@@ -24,7 +24,7 @@ const Home = () => {
 
     fetchPosts();
   }, []);
-
+  console.log(posts);
   return (
     <>
       <NavigationBar />
@@ -40,7 +40,8 @@ const Home = () => {
               totalComments={post.totalComments}
               createdAt={post.createdAt}
               withFooter={true}
-          />
+              id={post._id}
+            />
           ))}
         </div>
         <ScrollButton buttonText={"BackToTop"} />
