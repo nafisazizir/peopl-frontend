@@ -60,8 +60,10 @@ class UserDataService {
     return http
       .post("/user/set-username", { username: newUsername })
       .then((response: AxiosResponse<Token>) => {
-        const { token } = response.data;
+        console.log(response.data);
+        const { token, username } = response.data;
         localStorage.token = token;
+        localStorage.username = username;
         setAuthTokenToAxios(token);
         return response;
       });

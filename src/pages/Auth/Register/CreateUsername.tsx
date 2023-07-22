@@ -4,16 +4,19 @@ import "./CreateUsernameStyle.css";
 import Label from "../../../components/Label/Label";
 import ButtonLarge from "../../../components/Button/Large/ButtonLarge";
 import ButtonNormal from "../../../components/Button/Normal/ButtonNormal";
+import UserDataService, { User, UserDetails } from "../../../services/user";
 
 type Props = {};
 
 export default function CreateUsername({}: Props) {
   const navigate = useNavigate();
+  const [usernames, setUsernames] = useState<string[]>();
   const [username, setUsername] = useState("");
 
   const handleUsername = (event: ChangeEvent<HTMLInputElement>) => {
     const newUsername = event.target.value;
     setUsername(newUsername);
+
   };
   const iconBack = (
     <svg
@@ -112,7 +115,32 @@ export default function CreateUsername({}: Props) {
     </svg>
   );
 
-  const handleRandomize = () => {};
+  
+  const handleRandomize = async (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    try {
+      const response = await UserDataService.getUsernameRecommendation();
+      console.log(response.data);
+      setUsernames(response.data);
+
+      
+    } catch (error) {
+      console.error("Failed to fetch posts:", error);
+    }
+  };
+
+  const handleSetUsername =async (event:React.MouseEvent<HTMLDivElement>) => {
+    try {
+      console.log("berhasil set");
+      const response = await UserDataService.setNewUsername(username);
+      console.log(response.data);
+     
+    }catch (error) {
+      console.error("Failed to fetch posts:", error);
+    }
+  };
+
   return (
     <>
       <div className="logo-app">Peopl.</div>
@@ -122,7 +150,9 @@ export default function CreateUsername({}: Props) {
             <ButtonNormal
               iconLeft={iconBack}
               buttonText={"Back to Register"}
-              onClick={() => {navigate("/register")}}
+              onClick={() => {
+                navigate("/register");
+              }}
               isSecondary={false}
               isGhost={true}
             ></ButtonNormal>
@@ -135,28 +165,39 @@ export default function CreateUsername({}: Props) {
             </div>
           </div>
           <div className="username-form">
-            <Label
-              labelText={"Username"}
-              isRequired={true}
-              placeholderText={"Ex: PokemonAir-Bulbasour11"}
-              value={username}
-              onChange={handleUsername}
-            />
+            <div className="stretch">
+              <Label
+                labelText={"Username"}
+                isRequired={true}
+                placeholderText={"Ex: PokemonAir-Bulbasour11"}
+                value={username}
+                onChange={handleUsername}
+              />
+            </div>
+
             <ButtonLarge
               iconLeft={iconDice}
               buttonText={"Randomize"}
-              onClick={function (
-                event: React.MouseEvent<HTMLDivElement, MouseEvent>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
+              onClick={handleRandomize}
               isSecondary={true}
               isGhost={false}
             ></ButtonLarge>
           </div>
+          <div className="recommendation-container">
+            <div className="body-p7">Here are some username suggestions</div>
+            {usernames ? usernames.map((username) => 
+                <ButtonNormal
+                  buttonText={username}
+                  isSecondary={false}
+                  isGhost={true}
+                  onClick={() => {setUsername(username), navigate("/home")}}
+                />
+              ): ""}
+              
+          </div>
           <ButtonLarge
             buttonText={"Continue"}
-            onClick={handleRandomize}
+            onClick={handleSetUsername}
             isSecondary={false}
             isGhost={false}
           ></ButtonLarge>
