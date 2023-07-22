@@ -33,7 +33,7 @@ export default function DetailPost() {
   const [comments, setComments] = useState(post?.comments);
   const { id } = useParams();
 
-  const onComment = (newComment: Comment) => {
+  const onComment = () => {
     if (comments) {
       setComments([...comments]);
     }
