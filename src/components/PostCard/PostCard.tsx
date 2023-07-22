@@ -41,7 +41,7 @@ function getRelativeTime(createdAt: Date): string {
 }
 
 const PostCard: React.FC<PostCardProps> = ({
-  id, 
+  id,
   title,
   content,
   author,
@@ -92,10 +92,9 @@ const PostCard: React.FC<PostCardProps> = ({
     navigate(`/profile/${author}`);
   };
 
-  const handlePostClick = () =>
-  {
-    navigate(`/post/${id}`)
-  }
+  const handlePostClick = () => {
+    navigate(`/post/${id}`);
+  };
   return (
     <div className="post-card-container">
       <div className="post-card-header">
@@ -158,7 +157,7 @@ const PostCard: React.FC<PostCardProps> = ({
                 stroke-linejoin="round"
               />
             </svg>
-            <div >{totalComments} Comments</div>
+            <div>{totalComments} Comments</div>
           </div>
         </div>
       )}

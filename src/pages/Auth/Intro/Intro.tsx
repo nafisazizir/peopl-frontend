@@ -20,18 +20,26 @@ export default function Intro({}: Props) {
           </div>
           <div className="intro-option">
             <h3>Register</h3>
-            <ButtonAuthGoogle onClick={() => {
+            <ButtonAuthGoogle
+              onClick={() => {
                 navigate("/xxxx");
-              }}/>
-            <ButtonAuth onClick={() => {
+              }}
+            />
+            <ButtonAuth
+              onClick={() => {
                 navigate("/register");
-              }}/>
-    
+              }}
+            />
+
             <div className="login-frame">
               <div className="body-p6">Already have an account?</div>
-              <a onClick={() => {
-                navigate("/login");
-              }}><div className="body-p6 login-text">Log In</div></a>
+              <a
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                <div className="body-p6 login-text">Log In</div>
+              </a>
             </div>
           </div>
           <div className="intro-footer">

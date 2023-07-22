@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./CommentCardStyle.css";
-import ButtonLarge from "../Button/Large/ButtonLarge";
 import ButtonNormal from "../Button/Normal/ButtonNormal";
-import CommentInput from "../CommentInput/CommentInput";
 import { useCollapse } from "react-collapsed";
 import CommentInputNested from "../CommentInput/CommentInputNested";
 import { Comment } from "../../services/post";
-
 
 type ChildCardProps = {
   childComment: Comment[];
@@ -154,7 +151,9 @@ function CommentCard({ childComment }: ChildCardProps) {
                 <div className="body-p6">{username}</div>
               </div>
               <div className="comment-left">
-                <div className="body-p8">{getRelativeTime(new Date(comment.createdAt))}</div>
+                <div className="body-p8">
+                  {getRelativeTime(new Date(comment.createdAt))}
+                </div>
               </div>
             </div>
             <div className="comment-body">
@@ -193,7 +192,6 @@ function CommentCard({ childComment }: ChildCardProps) {
               ""
             )}
           </div>
-          
         </div>
       ))}
     </>

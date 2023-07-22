@@ -27,7 +27,6 @@ const CommentInput: React.FC<CommentInputProps> = ({
         parentID,
         parentType
       );
-     
     } catch (error) {
       console.log("An unknown error occurred.");
     }
@@ -157,7 +156,7 @@ const CommentInput: React.FC<CommentInputProps> = ({
             isSecondary={false}
             isGhost={false}
             onClick={() => {
-                handleSubmit();
+              handleSubmit();
             }}
           />
         </div>

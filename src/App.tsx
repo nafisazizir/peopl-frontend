@@ -3,7 +3,6 @@ import Intro from "./pages/Auth/Intro/Intro";
 import Register from "./pages/Auth/Register/Register";
 import Home from "./pages/Home/Home";
 import Community from "./pages/Community/Community";
-import ProfileOther from "./pages/Profile/ProfileOther";
 import CreateUsername from "./pages/Auth/Register/CreateUsername";
 import Login from "./pages/Auth/Login/Login";
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword";
@@ -33,9 +32,8 @@ function App() {
         <Route path="/profile/:username" element={<Profile />} />
         <Route path="/community/:communityName" element={<Community />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/matchmaking" element={<Matchmaking />} />        <Route path="/post/:id" element={<DetailPost />} />
-        
-
+        <Route path="/matchmaking" element={<Matchmaking />} />{" "}
+        <Route path="/post/:id" element={<DetailPost />} />
       </Routes>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ButtonNormal from "../../components/Button/Normal/ButtonNormal";
 import PostCard from "../../components/PostCard/PostCard";
@@ -28,32 +28,6 @@ export default function DetailPost() {
       />
     </svg>
   );
-  function getRelativeTime(createdAt: Date): string {
-    const now = new Date();
-    const diffInSeconds = Math.floor(
-      (now.getTime() - createdAt.getTime()) / 1000
-    );
-
-    const timeUnits: { [unit: string]: number } = {
-      year: 31536000,
-      month: 2592000,
-      week: 604800,
-      day: 86400,
-      hour: 3600,
-      minute: 60,
-    };
-
-    for (const unit in timeUnits) {
-      const seconds = timeUnits[unit as keyof typeof timeUnits];
-      const interval = Math.floor(diffInSeconds / seconds);
-
-      if (interval >= 1) {
-        return `${interval}${unit.charAt(0)}`;
-      }
-    }
-
-    return "now";
-  }
 
   const [post, setPost] = useState<Post>();
   const [comments, setComments] = useState(post?.comments);
