@@ -22,7 +22,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ username }) => {
     };
 
     fetchPosts();
-  }, []);
+  }, [username]);
   return (
     <div className="message-box">
       {messages.map((mess) => {

@@ -1,5 +1,4 @@
 .com-container {
-    
   display: flex;
   padding: 16px 24px;
   justify-content: space-between;
@@ -7,6 +6,7 @@
   align-self: stretch;
   border-radius: 8px;
   background: var(--neutral-0, #fff);
+  cursor: pointer;
 }
 
 .icon-container {
@@ -37,9 +37,9 @@
 }
 
 .grey-402 {
-    color: var(--neutral-40-2, #9CAABA);
-  }
-  
-  .grey-40 {
-    color: var(--neutral-40, #546881);
-  }
+  color: var(--neutral-40-2, #9caaba);
+}
+
+.grey-40 {
+  color: var(--neutral-40, #546881);
+}

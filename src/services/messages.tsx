@@ -23,6 +23,11 @@ class MessageDataService {
     setAuthTokenToAxios(localStorage.token);
     return http.post("/message", { recipient: recipient, content: content });
   }
+
+  getMessageSummary(): Promise<AxiosResponse<string[]>> {
+    setAuthTokenToAxios(localStorage.token);
+    return http.get("/message/summary");
+  }
 }
 
 export default new MessageDataService();

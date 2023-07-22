@@ -32,7 +32,6 @@ export default function Search({}: Props) {
         const response = await SearchDataService.search({
           keyword: keyword,
         });
-        console.log(response.data);
         setPosts(response.data.posts);
         setCommunities(response.data.communities);
         setUsers(response.data.users);
@@ -84,7 +83,7 @@ export default function Search({}: Props) {
                       totalComments={post.totalComments}
                       createdAt={post.createdAt}
                       withFooter={true}
-                  />
+                    />
                   ))
                 ) : (
                   <EmptyState />
@@ -98,7 +97,6 @@ export default function Search({}: Props) {
                     <CommunityCard
                       community={community.name}
                       numOfMem={community.members.length}
-                      numOfPost={0}
                       description={community.description}
                     />
                   ))
@@ -111,7 +109,10 @@ export default function Search({}: Props) {
               <div className="peoples">
                 {users.length > 0 ? (
                   users.map((user) => (
-                    <PeopleCard user={user.username} numOfPost={10} />
+                    <PeopleCard
+                      user={user.username}
+                      totalCommunities={user.followedCommunities.length}
+                    />
                   ))
                 ) : (
                   <EmptyState />

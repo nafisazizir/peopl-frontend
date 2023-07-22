@@ -63,17 +63,19 @@ const MessageFooter: React.FC<MessageFooterProps> = ({ username }) => {
 
   return (
     <div className="message-input-container">
-      <div className="message-input">
-        <input
-          className="search-input-message"
-          placeholder="Type a message"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          value={message}
-        />
-        <div onClick={handleSendMessage}>{sendIcon}</div>
-      </div>
+      {username !== "" && (
+        <div className="message-input">
+          <input
+            className="search-input-message"
+            placeholder="Type a message"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={message}
+          />
+          <div onClick={handleSendMessage}>{sendIcon}</div>
+        </div>
+      )}
     </div>
   );
 };
