@@ -10,7 +10,6 @@ import ResetPassword from "./pages/Auth/ForgotPassword/ResetPassword";
 import Search from "./pages/Search/Search";
 import CreatePost from "./pages/Create/CreatePost";
 
-
 function App() {
   return (
     <>
@@ -23,9 +22,8 @@ function App() {
         <Route path="/login/forgot/sent" element={<EmailSent />} />
         <Route path="/reset" element={<ResetPassword />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/search/posts" element={<Search />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/create" element={<CreatePost />} />
-
       </Routes>
     </>
   );
